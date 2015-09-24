@@ -292,7 +292,12 @@
   "HTTP_401": "401: Unauthorized Error, please log in or sign in",
   "HTTP_404": "Error 404: Information Not Found",
   "HTTP_500": "500: Internal Server Error, sorry for the inconvenience",
-  
+
+  "FORGET_PASS": "Forget password?",
+  "SEND_NEW_PASS": "Get new password",
+  "EMAIL_TO_SEND_NEW_PASS": "Email to send new password:",
+  "ERROR": "Error:",
+
   "AuthorizationResource.registerUser.arg1.socialLogin": "Registration Error. Wrong input format for Social Login!",
   "AuthorizationResource.registerUser.arg1.name": "Registration Error. Wrong input format for user Name!",
   "AuthorizationResource.registerUser.arg1.surname": "Registration Error. Wrong input format for user Surname!",

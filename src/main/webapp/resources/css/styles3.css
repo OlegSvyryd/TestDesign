@@ -31,7 +31,7 @@ p {
     text-decoration: none;
     float: right;
 }
-.fa{
+.fa.black-color{
     font-size: 140% !important;
     margin-right: 10px;
     margin-top: 3px;
@@ -42,7 +42,7 @@ p {
     cursor: pointer;
 }
 .socialButtons {
-	border: 1px solid green;
+	border: 1px solid #eaeaea;
 	border-radius: 5px;
 	margin-top: 10px;
 	margin-right: auto;
@@ -50,10 +50,8 @@ p {
 	margin-bottom: 20px;	
 	padding: 15px;
 }
-
-
 #loginblock {
-	border: 1px solid green;
+	border: 1px solid #eaeaea;
 	border-radius: 5px;
 	margin-top: 30px;
 	margin-right: auto;
@@ -62,15 +60,15 @@ p {
 }
 
 #passwordUpdateBlock {
-	border: 1px solid green;
+	border: 1px solid #eaeaea;
 	border-radius: 5px;	
 	padding: 10px;
 }
 
 #profileblock {
-	border-right: 1px solid green;
-	border-left: 1px solid green;
-	border-bottom: 1px solid green;
+	border-right: 1px solid #eaeaea;
+	border-left: 1px solid #eaeaea;
+	border-bottom: 1px solid #eaeaea;
 	border-radius: 0px;
 	margin-top: -11px;
 	margin-right: auto;
@@ -81,9 +79,8 @@ p {
 }
 
 #regblock {
-	border-right: 1px solid green;
-	border-left: 1px solid green;
-	/*border-radius: 5px;	*/
+	border-right: 1px solid #eaeaea;
+	border-left: 1px solid #eaeaea;
 	margin-top:-10px;
 	margin-right: auto;
 	margin-left: auto;
@@ -92,7 +89,7 @@ p {
 }
 
 .usualReg {
-	border: 1px solid green;
+	border: 1px solid #eaeaea;
 	border-radius: 5px;
 	margin-top: 10px;
 	margin-right: auto;
@@ -105,15 +102,6 @@ p {
 	margin-top: 10px;	
 	padding: 10px;
 }
-
-#GResult {
-	/*display:none;*/
-}
-
-#FBResult {
-	/*display:none;*/
-}
-
 #resGoogleTA{
 	padding-bottom: 0px;
 }
@@ -184,4 +172,107 @@ p {
 }
 .nav-form{
     padding-top: 6px;
+}
+.black-color{
+    color: #333;
+}
+.btn-lg-log{
+    background-color: #333;
+    border-color: #eaeaea;
+}
+.btn-lg-log:hover{
+    background-color: #333;
+    border-color: #333;
+}
+.btn-md-log{
+    background-color: #333;
+    border-color: #eaeaea;
+}
+.btn-md-log:hover{
+    background-color: #333;
+    border-color: #333;
+}
+a:hover, a:focus{
+    text-decoration: none;
+}
+.btn-success[disabled]{
+    background-color: #333;
+    border-color: #eaeaea;
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success.focus,
+.btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success {
+    color: #ffffff;
+    background-color: #333;
+    border-color: #eaeaea;
+}
+#feedbackSubmit1{
+    display: block;
+    margin-top: 10px;
+}
+.rgh{
+    float: right;
+}
+.align-bottom{
+    position: absolute;
+    bottom: 7px;
+}
+.cur-poi{
+    cursor: pointer;
+}
+.press-bottom{
+    float:none;
+    margin-bottom: 7px;
+}
+.fl-n{
+    float: none;
+}
+.marg-spin-100{
+    margin-top:100px;
+}
+.marg-spin-250{
+    top:250px;
+}
+.marg-spin-200{
+    height: 200px;
+}
+.marg-spin-400{
+    height:400px;
+}
+.height-up{
+    height: 50px;
+}
+.marg-spin-320{
+    top: 320px;
+}
+.image-wrapper{
+    position: relative;
+    width: auto;
+    text-align: center;
+}
+.img-inner-wrapper{
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+.txar{
+    overflow: overlay;
+    resize:none;
+}
+.va-init{
+    vertical-align: initial;
+}
+.in-bl{
+    display: inline-block;
+}
+.admin-anim-spin{
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+}
+.er-color{
+    color: #a94442;
 }

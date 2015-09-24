@@ -3,11 +3,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                        <p>
-                            <image src="../resources/img/main_dog.jpg"/>
-                        </p>
-                    </div>
                     <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
                         <h2>{{ 'ANIMAL_DETAILED_EDIT' | translate }}</h2>
                     </div>
@@ -18,13 +13,13 @@
 
     <div class="container">
         <!-- Spinner -->
-        <div class="col-xs-7 col-sm-9 col-md-8 col-lg-9" style="top: 320px;" ng-show="contentLoading"
+        <div class="col-xs-7 col-sm-9 col-md-8 col-lg-9 marg-spin-320" ng-show="contentLoading"
              id="loading-block">
         </div>
         <div ng-show="!contentLoading">
             <form name="animalEditor" ng-submit="updateAnimal(animalEditor.$valid)" novalidate>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-default">
                         <div class="row">
 
                             <!-- Animal photo -->
@@ -222,11 +217,11 @@
 	                        <a class="btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" href role="button"
 	                           onclick="document.getElementById('upload').click();"
 	                           ng-disabled="errors.length > 0">{{ 'CHANGE_PHOTO' | translate }}</a>
-	                        <input type="file" id="upload" name="photo" ng-model="imageFile" style="visibility: hidden;"
+	                        <input type="file" id="upload" name="photo" ng-model="imageFile" class="invisible"
 	                               maxsize="5000" accept="image/*" base-sixty-four-input />
 	                    </div>
 	                    <div class="col-sm-3 col-md-3 col-lg-3"><a
-	                            class="btn btn-success col-xs-12 col-sm-12 col-md-12 col-lg-12"
+	                            class="btn btn-primary col-xs-12 col-sm-12 col-md-12 col-lg-12"
 	                            href="#/ua/user/profile/animals/{{ animal.id }}" role="button">{{ 'BACK' | translate }}</a>
 	                    </div>
 	                </div>

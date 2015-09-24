@@ -1,349 +1,442 @@
-<section id="contacts">
-<div class="jumbotron">     
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-						<p><image src="../resources/img/main_dog.jpg"/></p>
-					</div>
-					<div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
-						<h2>{{ 'USER_PROFILE' | translate }}</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-</div>
-</section>
-
-<div class="container" id="userProfile">
-
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="profileblock">
-	<div class="row">
-
-		<div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
-		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" id="userPhoto">
-			<div class="col-xs-10 col-lg-10 text-center">
-                    <h3 class="blocktext">{{ 'USER_IMAGE_FROM_SOCIALS' | translate }}</h3>
-                    <div class="smallIMG">
-                        <p><image ng-hide="userInfo.socialPhoto" class="displayed" src="resources/img/no-image.jpg" height="280" /></p>
-                        <p><image ng-show="userInfo.socialPhoto" class="displayed" src="{{userInfo.socialPhoto}}" height="280" /></p>
+<section id="user-profile">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
+                        <h2>{{ 'USER_PROFILE' | translate }}</h2>
                     </div>
-
-                    <p class="blocktext2">{{ 'USER_SOCIAL_ASSIGN' | translate }}</p>
-                    <div class="text-center">
-                    	<a ng-disabled="disableFacebook" ng-click = "JoinFacebook()" class="btn btn-social-icon btn-facebook btn-md">
-                    	<i class="fa fa-facebook"></i></a>
-                    	<a ng-disabled="disableGoogle" ng-click = "JoinGoogle()" class="btn btn-social-icon btn-google btn-md">
-                    	<i class="fa fa-google"></i></a>
-                    	<a ng-disabled="disableTwitter" ng-click = "JoinTwitter()" class="btn btn-social-icon btn-twitter btn-md">
-                    	<i class="fa fa-twitter"></i></a>        	                	                   	
-					</div>
-					<div ng-show="errorJoinMessage">
-						<br>
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
-	  						<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	  						<span class="sr-only">Error:</span> {{errorJoinMessage}}
-						</div>
-					</div>
-            </div>
-		</div>
-		
-		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
-        <h3 class = "text-center">{{ 'PERSONAL_DATA' | translate }}</h3>
-        </div>
-        
-		<!-- Spinner -->
-        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" ng-show="contentLoading" id="loading-block" style="height:400px;"></div>
-        
-		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" id="userData" ng-show="!contentLoading">
-			<br><br>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'LOGIN' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.socialLogin}}</label>
-				</div>
-				
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'USER_NAME' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.name}}</label>
-				</div>				
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'USER_SURNAME' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.surname}}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'REGISTRATION_DATE' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.registrationDate}}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'USER_EMAIL' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.email}}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'USER_PHONE' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.phone}}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'USER_ADDRESS' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.address}}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'REG_ORGANIZATION_NAME' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.organizationName}}</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{ 'REG_ORGANIZATION_INFO' | translate }}:</label>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<label >{{userInfo.organizationInfo}}</label>
-				</div>
-			</div>
-			<div class="form-group">				
-				<button ng-click="showPopup()" class="btn btn-success btn-md col-xs-12 col-sm-12 col-md-4 col-lg-5" id = "editProfile">{{ 'USER_EDIT_PROFILE' | translate }}</button>
-			</div>
-			<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<p>{{ 'USER_HINT' | translate }}</p>
-			</div>
-		</div>
-
-	</div>
-
-	<div ng-hide = "IsHidden" id="editUser">
-
-			<div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 usualReg">
-			<form class="form-horizontal" name="form" novalidate>
-			<div class="col-xs-0 col-sm-1 col-md-1 col-lg-1"></div><h3>{{ 'USER_INFORMATION_EDIT' | translate }}</h3>
-			<div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-				<br>				
-				<div class="form-group">
-		    		<label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label" >{{ 'LOGIN' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-		    		<label>{{fields.socialLogin}}</label>		      		
-		    		</div>
-		    	</div>
-				<div class="form-group" data-ng-class="{'has-error':form.userName.$error.minlength || form.userName.$error.maxlength }">
-		    		<label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label" >{{ 'NAME' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-			      		<input class="form-control" name="userName" ng-model="fields.name" placeholder="{{userInfo.name}}"
-			      			   ng-minlength='2' ng-maxlength='35'>
-			      		<div ng-show="form.userName.$error.minlength" class="help-inline">{{ 'NAME_MIN_LENGTH' | translate }}</div>
-		      			<div ng-show="form.userName.$error.maxlength" class="help-inline">{{ 'NAME_MAX_LENGTH' | translate }}</div>
-		    		</div>
-		    	</div>
-		    	<div class="form-group" data-ng-class="{'has-error':form.userSurname.$error.minlength || form.userSurname.$error.maxlength }">		    			  		
-		    		<label class="col-xs-5 col-sm-5col-md-3 col-lg-3 control-label" >{{ 'SURNAME' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-		      			<input class="form-control" name="userSurname" ng-model="fields.surname" placeholder="{{userInfo.surname}}"
-		      		 		ng-minlength='2' ng-maxlength='45'>
-		      		 	<div ng-show="form.userSurname.$error.minlength" class="help-inline">{{ 'SURNAME_MIN_LENGTH' | translate }}</div>
-	      				<div ng-show="form.userSurname.$error.maxlength" class="help-inline">{{ 'SURNAME_MAX_LENGTH' | translate }}</div>
-		    		</div>
-		    	</div>
-		    	<div class="form-group" data-ng-class="{'has-error':form.userEmail.$invalid && !regForm.userEmail.$pristine}">		    			  		
-		    		<label class="col-xs-5 col-sm-5col-md-3 col-lg-3 control-label" >{{ 'EMAIL' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-		      			<input class="form-control" name="userEmail" type="email" ng-model="fields.email" placeholder="{{userInfo.email}}"
-		      			ng-required="true" pattern="[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" >		      			
-		    		</div>
-		    	</div>
-		    	<div class="form-group" data-ng-class="{'has-error':form.password.$error.minlength}">		    			  		
-		    		<label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label" >{{ 'USER_NEW_PASSWORD' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-		      			<input class="form-control" type="password" name='password' ng-minlength='5' ng-maxlength='16' ng-model="passwordNew">
-		      			<div ng-show="form.password.$error.minlength" class="help-inline">{{ 'PASSWORD_MIN_LENGTH' | translate }}</div>
-	      				<div ng-show="form.password.$error.maxlength" class="help-inline">{{ 'PASSWORD_MAX_LENGTH' | translate }}</div>
-		    		</div>
-		    	</div>
-		    	<div class="form-group" data-ng-class="{'has-error':form.confirm_password.$error.passwordVerify}">		    			  		
-		    		<label class="col-xs-10 col-sm-5 col-md-3 col-lg-3 control-label" >{{ 'REG_REPEAT_PASSWORD' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-		      			<input class="form-control" type="password" name="confirm_password"  ng-model="password_new_confirm" 
-		      			data-password-verify="passwordNew">
-		      			<div ng-show="form.confirm_password.$error.passwordVerify">{{ 'PASSWORD_NOT_EQUAL' | translate }}</div>	    			    			
-		    		</div>
-		    	</div>
-		    	<div class="form-group" data-ng-class="{'has-error':form.userPhone.$invalid && !regForm.userPhone.$pristine}">		    			  		
-		    		<label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label"  >{{ 'PHONE' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-		      		<input class="form-control" name="userPhone" type="text" pattern="^[0-9]{3}-[0-9]{7}$" ng-model="fields.phone" 
-		      		placeholder="{{userInfo.phone}}">&nbsp; &nbsp;
-		      		<label>{{ 'REG_PHONE_TEMPLATE' | translate }}: '000-0000000'</label>
-		    		</div>
-		    	</div>
-		    	<div class="form-group" data-ng-class="{'has-error':form.userAdress.$error.maxlength}">		    			  		
-		    		<label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label">{{ 'ADDRESS' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-		    			<textarea class="form-control" name="userAdress" rows="2" ng-model="fields.address" 
-		    					placeholder="{{userInfo.address}}" ng-maxlength='120'></textarea>
-		    			<div ng-show="form.userAdress.$error.maxlength" class="help-inline">{{ 'ADDRESS_MAX_LENGTH' | translate }}</div>
-		    		</div>
-		    	</div>
-		    	<hr>		    	
-		    	<div class="form-group" data-ng-class="{'has-error':form.userCompany.$error.maxlength}">		    			  		
-		    		<label class="col-xs-5 col-sm-5 col-md-4 col-lg-4 control-label" >{{ 'REG_ORGANIZATION_NAME' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-		      			<input class="form-control" name="userCompany" ng-model="fields.organizationName" 
-		      				placeholder="{{userInfo.organizationName}}" ng-maxlength='70'>
-		      			<div ng-show="form.userCompany.$error.maxlength" class="help-inline">{{ 'COMPANY_NAME_MAX_LENGTH' | translate }}</div>
-		    		</div>
-		    	</div>
-
-		    	<div class="form-group" data-ng-class="{'has-error':form.userCompanyInfo.$error.maxlength}">		    			  		
-		    		<label class="col-xs-5 col-sm-5 col-md-4 col-lg-4 control-label" >{{ 'REG_ORGANIZATION_INFO' | translate }}:</label>
-		    		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-		    			<textarea class="form-control" name="userCompanyInfo" id="userCompanyInfo" rows="2" ng-model="fields.organizationInfo" 
-		    					placeholder="{{userInfo.organizationInfo}}" ng-maxlength='100'></textarea>
-		    			<div ng-show="form.userCompanyInfo.$error.maxlength" class="help-inline">{{ 'COMPANY_INFO_MAX_LENGTH' | translate }}</div>
-		    		</div>
-		    	</div>
-
-		  		<div class="form-group">		  		
-			  		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	  			
-			  		<div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
-					<button ng-click="submitUpdatedForm()" class="btn btn-success btn-md col-xs-12 col-sm-12 col-md-5 col-lg-5"
-							 id = "usualReg" ng-disabled="form.$invalid">{{ 'SAVE' | translate }}</button>
-					<div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
-					<button ng-click="closePopup()" class="btn btn-danger btn-md col-xs-12 col-sm-12 col-md-5 col-lg-5" >{{ 'CANCEL' | translate }}</button>
-					</div>	  			 			
-				</div>
-
-		</div>	
-		</form>				
-		</div>
-		<br>
-		<hr>
-	
-		</div>		
-	
-	<hr>
-
-		<div class="col-xs-0 col-sm-0 col-md-2 col-lg-3"></div>		
-		<div class="form-group col-xs-12 col-sm-12 col-md-8 col-lg-8">
-			<br>
-			<button ng-click="AddOwnAnimal()" class="btn btn-success btn-md col-xs-10 col-sm-10 col-md-4 col-lg-4" id = "addOwnAnimal">{{ 'USER_ADD_OWN_ANIMAL' | translate }}</button>
-    		<br>
-		</div>
-			<div ng-show="errorAddAnimalMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
-	  			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	  			<span class="sr-only">Error:</span> {{errorAddAnimalMessage}}
-			</div>
-		
-		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-1"></div>
-		
-		<div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id="listUserAnimals">
-			
-			<div class = "text-center" ng-show="!errorNoAnimals">
-				<h3> {{ 'USER_LIST_OWN_ANIMALS' | translate }}</h3>
-			</div>
-			<!-- Error message -->
-            <h3 class="col-xs-12 col-sm-9 col-md-12 col-lg-12" style="top: 15px;" ng-show="errorNoAnimals">
-                {{ 'USER_LIST_OF_ANIMALS_IS_EMPTY' | translate }}</h3>
-			
-			<!-- Spinner -->
-       		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" ng-show="contentLoading2" id="loading-block2" style="height:200px;"></div>						
-			
-                
-			<table class="table table-hover" ng-show="!contentLoading2 && !errorNoAnimals">
-            <thead>
-            <tr>
-                <td><strong>{{ 'TYPE' | translate }}</strong></td>
-                <td><strong>{{ 'BREED' | translate }}</strong></td>
-                <td><strong>{{ 'SEX' | translate }}</strong></td>
-                <td><strong>{{ 'COLOR' | translate }}</strong></td>
-                <td><strong>{{ 'TRANSPONDER' | translate }}</strong></td>
-                <td><strong>{{ 'BIRTH_DATE' | translate }}</strong></td>
-                <td />
-            </tr>    
-            </thead>
-            <tbody>
-            <tr ng-repeat="animal in animals.values">
-				<td ng-if="currentLanguage === 'uk'">{{ animal.type.type }}</td>
-				<td ng-if="currentLanguage !== 'uk'">{{ animal.type.typeEn }}</td>
-				<td ng-if="currentLanguage === 'uk'">{{ animal.breed.breedUa }}</td>
-				<td ng-if="currentLanguage !== 'uk'">{{ animal.breed.breedEn }}</td>
-				<td ng-if="animal.sex === 'NONE'">{{ 'NOT_IDENTIFIED' | translate }}</td>
-				<td ng-if="animal.sex === 'MALE'">{{ 'SEX_MALE' | translate }}</td>
-				<td ng-if="animal.sex === 'FEMALE'">{{ 'SEX_FEMALE' | translate }}</td>
-                <td>{{ animal.color }}</td>
-                <td>{{ animal.transpNumber }}</td>
-                <td>{{ animal.dateOfBirth }}</td>
-                <td><a href="#/ua/user/profile/animals/{{ animal.id }}"><image src="../resources/img/info-icon.png"></image></a></td>
-            </tr>    
-            </tbody>
-        </table>
-        
-        <div class="row" ng-show="!contentLoading2 && !errorNoAnimals">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success text-center">
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-
-                <!-- Pagination -->
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                    <pagination boundary-links="true" total-items="totalItems.count" ng-model="filter.page" ng-change="pageChanged()" class="paginator" items-per-page="filter.limit"
-                                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <!-- Row count selector -->
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rows-count">
-                    <div class="btn-group" dropdown keyboard-nav>
-                        <div class="btn-group" dropdown is-open="status.isopen">
-                            <button id="single-button" type="button" class="btn btn-success" dropdown-toggle ng-disabled="disabled">
-                                {{ filter.limit }} <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
-                                <li role="menuitem"><a href ng-click="countChanged('10')">10</a></li>
-                                <li role="menuitem"><a href ng-click="countChanged('20')">20</a></li>
-                                <li role="menuitem"><a href ng-click="countChanged('30')">30</a></li>
-                            </ul>
+    <div class="container" id="userProfile">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="profileblock">
+            <div class="row">
+
+                <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" id="userPhoto">
+                    <div class="col-xs-10 col-lg-10 text-center">
+                        <h3 class="blocktext">{{ 'USER_IMAGE_FROM_SOCIALS' | translate }}</h3>
+
+                        <div class="smallIMG">
+                            <p>
+                                <image ng-hide="userInfo.socialPhoto" class="displayed" src="resources/img/no-image.jpg"
+                                       height="280"/>
+                            </p>
+                            <p>
+                                <image ng-show="userInfo.socialPhoto" class="displayed" src="{{userInfo.socialPhoto}}"
+                                       height="280"/>
+                            </p>
+                        </div>
+
+                        <p class="blocktext2">{{ 'USER_SOCIAL_ASSIGN' | translate }}</p>
+
+                        <div class="text-center">
+                            <a ng-disabled="disableFacebook" ng-click="JoinFacebook()"
+                               class="btn btn-social-icon btn-facebook btn-md">
+                                <i class="fa fa-facebook"></i></a>
+                            <a ng-disabled="disableGoogle" ng-click="JoinGoogle()"
+                               class="btn btn-social-icon btn-google btn-md">
+                                <i class="fa fa-google"></i></a>
+                            <a ng-disabled="disableTwitter" ng-click="JoinTwitter()"
+                               class="btn btn-social-icon btn-twitter btn-md">
+                                <i class="fa fa-twitter"></i></a>
+                        </div>
+                        <div ng-show="errorJoinMessage">
+                            <br>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Error:</span> {{errorJoinMessage}}
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
+                    <h3 class="text-center">{{ 'PERSONAL_DATA' | translate }}</h3>
+                </div>
+
+                <!-- Spinner -->
+                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 marg-spin-400" ng-show="contentLoading" id="loading-block"></div>
+
+                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5" id="userData" ng-show="!contentLoading">
+                    <br><br>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'LOGIN' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.socialLogin}}</label>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'USER_NAME' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.name}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'USER_SURNAME' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.surname}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'REGISTRATION_DATE' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.registrationDate}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'USER_EMAIL' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.email}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'USER_PHONE' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.phone}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'USER_ADDRESS' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.address}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'REG_ORGANIZATION_NAME' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.organizationName}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{ 'REG_ORGANIZATION_INFO' | translate }}:</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <label>{{userInfo.organizationInfo}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button ng-click="showPopup()"
+                                class="btn btn-primary btn-md col-xs-12 col-sm-12 col-md-4 col-lg-5"
+                                id="editProfile">{{ 'USER_EDIT_PROFILE' | translate }}
+                        </button>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p>{{ 'USER_HINT' | translate }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ng-hide="IsHidden" id="editUser">
+
+                <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 usualReg">
+                    <form class="form-horizontal" name="form" novalidate>
+                        <div class="col-xs-0 col-sm-1 col-md-1 col-lg-1"></div>
+                        <h3>{{ 'USER_INFORMATION_EDIT' | translate }}</h3>
+
+                        <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            <br>
+
+                            <div class="form-group">
+                                <label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label">{{ 'LOGIN' | translate
+                                    }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                    <label>{{fields.socialLogin}}</label>
+                                </div>
+                            </div>
+                            <div class="form-group"
+                                 data-ng-class="{'has-error':form.userName.$error.minlength || form.userName.$error.maxlength }">
+                                <label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label">{{ 'NAME' | translate
+                                    }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                    <input class="form-control" name="userName" ng-model="fields.name"
+                                           placeholder="{{userInfo.name}}"
+                                           ng-minlength='2' ng-maxlength='35'>
+
+                                    <div ng-show="form.userName.$error.minlength" class="help-inline">{{
+                                        'NAME_MIN_LENGTH' |
+                                        translate }}
+                                    </div>
+                                    <div ng-show="form.userName.$error.maxlength" class="help-inline">{{
+                                        'NAME_MAX_LENGTH' |
+                                        translate }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group"
+                                 data-ng-class="{'has-error':form.userSurname.$error.minlength || form.userSurname.$error.maxlength }">
+                                <label class="col-xs-5 col-sm-5col-md-3 col-lg-3 control-label">{{ 'SURNAME' | translate
+                                    }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                    <input class="form-control" name="userSurname" ng-model="fields.surname"
+                                           placeholder="{{userInfo.surname}}"
+                                           ng-minlength='2' ng-maxlength='45'>
+
+                                    <div ng-show="form.userSurname.$error.minlength" class="help-inline">{{
+                                        'SURNAME_MIN_LENGTH' | translate }}
+                                    </div>
+                                    <div ng-show="form.userSurname.$error.maxlength" class="help-inline">{{
+                                        'SURNAME_MAX_LENGTH' | translate }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group"
+                                 data-ng-class="{'has-error':form.userEmail.$invalid && !regForm.userEmail.$pristine}">
+                                <label class="col-xs-5 col-sm-5col-md-3 col-lg-3 control-label">{{ 'EMAIL' | translate
+                                    }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                    <input class="form-control" name="userEmail" type="email" ng-model="fields.email"
+                                           placeholder="{{userInfo.email}}"
+                                           ng-required="true" pattern="[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+                                </div>
+                            </div>
+                            <div class="form-group" data-ng-class="{'has-error':form.password.$error.minlength}">
+                                <label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label">{{ 'USER_NEW_PASSWORD'
+                                    |
+                                    translate }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                    <input class="form-control" type="password" name='password' ng-minlength='5'
+                                           ng-maxlength='16' ng-model="passwordNew">
+
+                                    <div ng-show="form.password.$error.minlength" class="help-inline">{{
+                                        'PASSWORD_MIN_LENGTH' | translate }}
+                                    </div>
+                                    <div ng-show="form.password.$error.maxlength" class="help-inline">{{
+                                        'PASSWORD_MAX_LENGTH' | translate }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group"
+                                 data-ng-class="{'has-error':form.confirm_password.$error.passwordVerify}">
+                                <label class="col-xs-10 col-sm-5 col-md-3 col-lg-3 control-label">{{
+                                    'REG_REPEAT_PASSWORD' |
+                                    translate }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                    <input class="form-control" type="password" name="confirm_password"
+                                           ng-model="password_new_confirm"
+                                           data-password-verify="passwordNew">
+
+                                    <div ng-show="form.confirm_password.$error.passwordVerify">{{ 'PASSWORD_NOT_EQUAL' |
+                                        translate }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group"
+                                 data-ng-class="{'has-error':form.userPhone.$invalid && !regForm.userPhone.$pristine}">
+                                <label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label">{{ 'PHONE' | translate
+                                    }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                                    <input class="form-control" name="userPhone" type="text"
+                                           pattern="^[0-9]{3}-[0-9]{7}$"
+                                           ng-model="fields.phone"
+                                           placeholder="{{userInfo.phone}}">&nbsp; &nbsp;
+                                    <label>{{ 'REG_PHONE_TEMPLATE' | translate }}: '000-0000000'</label>
+                                </div>
+                            </div>
+                            <div class="form-group" data-ng-class="{'has-error':form.userAdress.$error.maxlength}">
+                                <label class="col-xs-5 col-sm-5 col-md-3 col-lg-3 control-label">{{ 'ADDRESS' |
+                                    translate
+                                    }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+		    			<textarea class="form-control" name="userAdress" rows="2" ng-model="fields.address"
+                                  placeholder="{{userInfo.address}}" ng-maxlength='120'></textarea>
+
+                                    <div ng-show="form.userAdress.$error.maxlength" class="help-inline">{{
+                                        'ADDRESS_MAX_LENGTH' | translate }}
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group" data-ng-class="{'has-error':form.userCompany.$error.maxlength}">
+                                <label class="col-xs-5 col-sm-5 col-md-4 col-lg-4 control-label">{{
+                                    'REG_ORGANIZATION_NAME'
+                                    | translate }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                    <input class="form-control" name="userCompany" ng-model="fields.organizationName"
+                                           placeholder="{{userInfo.organizationName}}" ng-maxlength='70'>
+
+                                    <div ng-show="form.userCompany.$error.maxlength" class="help-inline">{{
+                                        'COMPANY_NAME_MAX_LENGTH' | translate }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group" data-ng-class="{'has-error':form.userCompanyInfo.$error.maxlength}">
+                                <label class="col-xs-5 col-sm-5 col-md-4 col-lg-4 control-label">{{
+                                    'REG_ORGANIZATION_INFO'
+                                    | translate }}:</label>
+
+                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+		    			<textarea class="form-control" name="userCompanyInfo" id="userCompanyInfo" rows="2"
+                                  ng-model="fields.organizationInfo"
+                                  placeholder="{{userInfo.organizationInfo}}" ng-maxlength='100'></textarea>
+
+                                    <div ng-show="form.userCompanyInfo.$error.maxlength" class="help-inline">{{
+                                        'COMPANY_INFO_MAX_LENGTH' | translate }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+                                    <button ng-click="submitUpdatedForm()"
+                                            class="btn btn-primary btn-md col-xs-12 col-sm-12 col-md-5 col-lg-5"
+                                            id="usualReg" ng-disabled="form.$invalid">{{ 'SAVE' | translate }}
+                                    </button>
+                                    <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+                                    <button ng-click="closePopup()"
+                                            class="btn btn-danger btn-md col-xs-12 col-sm-12 col-md-5 col-lg-5">{{
+                                        'CANCEL'
+                                        | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <hr>
+
+            </div>
+
+            <hr>
+
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-3"></div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <br>
+                <button ng-click="AddOwnAnimal()" class="btn btn-primary btn-md col-xs-10 col-sm-10 col-md-4 col-lg-4"
+                        id="addOwnAnimal">{{ 'USER_ADD_OWN_ANIMAL' | translate }}
+                </button>
+                <br>
+            </div>
+            <div ng-show="errorAddAnimalMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger"
+                 role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">{{ 'ERROR' | translate }}</span> {{errorAddAnimalMessage}}
+            </div>
+
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-1"></div>
+
+            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id="listUserAnimals">
+
+                <div class="text-center" ng-show="!errorNoAnimals">
+                    <h3> {{ 'USER_LIST_OWN_ANIMALS' | translate }}</h3>
+                </div>
+                <!-- Error message -->
+                <h3 class="col-xs-12 col-sm-9 col-md-12 col-lg-12" style="top: 15px;" ng-show="errorNoAnimals">
+                    {{ 'USER_LIST_OF_ANIMALS_IS_EMPTY' | translate }}</h3>
+
+                <!-- Spinner -->
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" ng-show="contentLoading2" id="loading-block2"
+                     style="height:200px;"></div>
+
+
+                <table class="table table-hover" ng-show="!contentLoading2 && !errorNoAnimals">
+                    <thead>
+                    <tr>
+                        <td><strong>{{ 'TYPE' | translate }}</strong></td>
+                        <td><strong>{{ 'BREED' | translate }}</strong></td>
+                        <td><strong>{{ 'SEX' | translate }}</strong></td>
+                        <td><strong>{{ 'COLOR' | translate }}</strong></td>
+                        <td><strong>{{ 'TRANSPONDER' | translate }}</strong></td>
+                        <td><strong>{{ 'BIRTH_DATE' | translate }}</strong></td>
+                        <td/>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="animal in animals.values">
+                        <td ng-if="currentLanguage === 'uk'">{{ animal.type.type }}</td>
+                        <td ng-if="currentLanguage !== 'uk'">{{ animal.type.typeEn }}</td>
+                        <td ng-if="currentLanguage === 'uk'">{{ animal.breed.breedUa }}</td>
+                        <td ng-if="currentLanguage !== 'uk'">{{ animal.breed.breedEn }}</td>
+                        <td ng-if="animal.sex === 'NONE'">{{ 'NOT_IDENTIFIED' | translate }}</td>
+                        <td ng-if="animal.sex === 'MALE'">{{ 'SEX_MALE' | translate }}</td>
+                        <td ng-if="animal.sex === 'FEMALE'">{{ 'SEX_FEMALE' | translate }}</td>
+                        <td>{{ animal.color }}</td>
+                        <td>{{ animal.transpNumber }}</td>
+                        <td>{{ animal.dateOfBirth }}</td>
+                        <td><a href="#/ua/user/profile/animals/{{ animal.id }}">
+                            <image src="../resources/img/info-icon.png"></image>
+                        </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="row" ng-show="!contentLoading2 && !errorNoAnimals">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success text-center">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+                        <!-- Pagination -->
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <pagination boundary-links="true" total-items="totalItems.count" ng-model="filter.page"
+                                        ng-change="pageChanged()" class="paginator" items-per-page="filter.limit"
+                                        previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+                                        last-text="&raquo;"></pagination>
+                        </div>
+
+                        <!-- Row count selector -->
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rows-count">
+                            <div class="btn-group" dropdown keyboard-nav>
+                                <div class="btn-group" dropdown is-open="status.isopen">
+                                    <button id="single-button" type="button" class="btn btn-primary" dropdown-toggle
+                                            ng-disabled="disabled">
+                                        {{ filter.limit }} <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="single-button">
+                                        <li role="menuitem"><a href ng-click="countChanged('10')">10</a></li>
+                                        <li role="menuitem"><a href ng-click="countChanged('20')">20</a></li>
+                                        <li role="menuitem"><a href ng-click="countChanged('30')">30</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spinner -->
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 marg-spin-200" ng-show="contentLoading2"
+                     id="loading-block2"></div>
             </div>
         </div>
-        
-        <!-- Spinner -->
-       	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" ng-show="contentLoading2" id="loading-block2" style="height:200px;"></div>
-        
-        
-
-		</div>
-
-	</div>
-</div>
+    </div>
+</section>
 
 <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 

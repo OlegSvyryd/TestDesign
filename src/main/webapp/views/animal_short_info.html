@@ -1,13 +1,8 @@
-<section id="adoption">
+<section id="animal-short-info">
     <div class="jumbotron">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                        <p>
-                            <image src="../resources/img/main_dog.jpg"/>
-                        </p>
-                    </div>
                     <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
                         <h2>{{ textTitle }}</h2>
                     </div>
@@ -16,15 +11,16 @@
         </div>
     </div>
     </div>
-    <div class="row" style="height: 50px"></div>
+    <div class="row height-up"></div>
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 panel panel-success">
+        <div class="col-md-6 col-md-offset-3 panel panel-default">
             <div class="row">
                 <div class="panel-body">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 panel-body">
                         <div class="image-wrapper" style="position: relative; width: auto; text-align: center;">
                             <div class="center-block" style="position: relative; width: 200px; height: 200px;">
-                            <img class="img-responsive img-thumbnail center-block" src="{{ animalImage }}">
+                                <img class="img-responsive img-thumbnail center-block" src="{{ animalImage }}">
+
                                 <p class="soc-fb"
                                    ng-if="service == 'adoption'"
                                    ng-href
@@ -44,13 +40,15 @@
                                    socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/adoption/{{animal.id}}"
                                    socialshare-redirect-uri="https://www.facebook.com/">
                                 </p>
+
                                 <p class="soc-gg"
                                    ng-if="service == 'adoption'"
                                    ng-href
                                    socialshare
                                    socialshare-provider="google+"
-                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/adoption/{{animal.id}}" >
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/adoption/{{animal.id}}">
                                 </p>
+
                                 <p class="soc-tw"
                                    ng-if="service == 'adoption'"
                                    ng-href
@@ -80,13 +78,15 @@
                                    socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/found/{{animal.id}}"
                                    socialshare-redirect-uri="https://www.facebook.com/">
                                 </p>
+
                                 <p class="soc-gg"
                                    ng-if="service == 'found'"
                                    ng-href
                                    socialshare
                                    socialshare-provider="google+"
-                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/found/{{animal.id}}" >
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/found/{{animal.id}}">
                                 </p>
+
                                 <p class="soc-tw"
                                    ng-if="service == 'found'"
                                    ng-href
@@ -116,13 +116,15 @@
                                    socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/lost/{{animal.id}}"
                                    socialshare-redirect-uri="https://www.facebook.com/">
                                 </p>
+
                                 <p class="soc-gg"
                                    ng-if="service == 'lost'"
                                    ng-href
                                    socialshare
                                    socialshare-provider="google+"
-                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/lost/{{animal.id}}" >
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/lost/{{animal.id}}">
                                 </p>
+
                                 <p class="soc-tw"
                                    ng-if="service == 'lost'"
                                    ng-href
@@ -134,23 +136,9 @@
                                 </p>
                             </div>
                         </div>
-
-                        <script>
-                            $( ".image-wrapper"  ).hover(
-                                    function() {
-                                        $('.soc-fb').css({visibility: 'visible', opacity: 1.0});
-                                        $('.soc-gg').css({visibility: 'visible', opacity: 1.0});
-                                        $('.soc-tw').css({visibility: 'visible', opacity: 1.0});
-                                    }, function() {
-                                        $('.soc-fb').css({visibility: 'hidden', opacity: 0.0});
-                                        $('.soc-gg').css({visibility: 'hidden', opacity: 0.0});
-                                        $('.soc-tw').css({visibility: 'hidden', opacity: 0.0});
-                                    }
-                            );
-                        </script>
-
                         <p>
-                            <div ng-cloak id="status-sprite-{{animal.id}}" class="center-block" style="text-align: center"></div>
+
+                        <div ng-cloak id="status-sprite-{{animal.id}}" class="center-block center-link"></div>
                         </p>
                     </div>
                     <div class="col-md-6 detailed-right">
@@ -180,7 +168,8 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-4">{{ 'SIZE' | translate }}:</div>
-                            <div class="col-md-8" ng-if="animal.size === 'NONE'">{{ 'NOT_IDENTIFIED' | translate }}</div>
+                            <div class="col-md-8" ng-if="animal.size === 'NONE'">{{ 'NOT_IDENTIFIED' | translate }}
+                            </div>
                             <div class="col-md-8" ng-if="animal.size === 'SMALL'">{{ 'SIZE_SMALL' | translate }}</div>
                             <div class="col-md-8" ng-if="animal.size === 'MIDDLE'">{{ 'SIZE_NORMAL' | translate }}</div>
                             <div class="col-md-8" ng-if="animal.size === 'LARGE'">{{ 'SIZE_LARGE' | translate }}</div>
@@ -219,9 +208,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3 col-md-offset-6 detailed-buttons" >
-            <div class="col-md-7"><a class="btn btn-success col-md-12" ng-click="openDialog()" role="button" >{{ textButton }}</a></div>
-            <div class="col-md-5"><a class="btn btn-warning col-md-12" href={{linkBack}} role="button">{{ 'BACK' | translate }}</a></div>
+        <div class="col-md-3 col-md-offset-6 detailed-buttons">
+            <div class="col-md-7"><a class="btn btn-primary col-md-12" ng-click="openDialog()" role="button">{{
+                textButton }}</a></div>
+            <div class="col-md-5"><a class="btn btn-warning col-md-12" href={{linkBack}} role="button">{{ 'BACK' |
+                translate }}</a></div>
         </div>
     </div>
 </section>
@@ -230,14 +221,13 @@
     <div id="popUpDialog-bg" ng-show="showPopUpDialog">
         <div id="popUpDialog">
             <div class="content">
-
-                <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
-
-                <form role="form" name="messageForm"  ng-submit="submit(messageForm.$valid)" novalidate>
+                <form role="form" name="messageForm" ng-submit="submit(messageForm.$valid)" novalidate>
                     <div class="form-group "
                          ng-class="{ 'has-error' : messageForm.messagename.$invalid && !messageForm.messagename.$pristine }">
                         <label class="control-label" for="messagename">{{ 'NAME' | translate }}</label>
-                        <input type="text" class="form-control" id="messagename" name="messagename" ng-model="message.signup"  placeholder="{{ 'CONTACTS_INPUT_NAME' | translate }}" required=""
+                        <input type="text" class="form-control" id="messagename" name="messagename"
+                               ng-model="message.signup" placeholder="{{ 'CONTACTS_INPUT_NAME' | translate }}"
+                               required=""
                                ng-minlength="3"/>
                         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false"></span>
                         <span id="messagenameStatus" class="sr-only">(success)</span>
@@ -248,7 +238,9 @@
                     <div class="form-group "
                          ng-class="{ 'has-error' : messageForm.messageemail.$invalid && !messageForm.messageemail.$pristine }">
                         <label class="control-label" for="messageemail">{{ 'EMAIL' | translate }}</label>
-                        <input type="email" class="form-control" id="messageemail" name="messageemail" ng-model="message.email"  placeholder="{{ 'CONTACTS_INPUT_EMAIL' | translate }}" required=""
+                        <input type="email" class="form-control" id="messageemail" name="messageemail"
+                               ng-model="message.email" placeholder="{{ 'CONTACTS_INPUT_EMAIL' | translate }}"
+                               required=""
                                ng-minlength="5"/>
                         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         <span id="messageemailStatus" class="sr-only">(success)</span>
@@ -259,7 +251,8 @@
                     <div class="form-group"
                          ng-class="{ 'has-error' : messageForm.messagetext.$invalid && !messageForm.messagetext.$pristine }">
                         <label class="control-label" for="messagetext">{{ 'CONTACTS_MESSAGE' | translate }}</label>
-                        <textarea rows="10" cols="100" class="form-control" id="messagetext" name="messagetext" ng-model="message.text" placeholder="{{ 'CONTACTS_MESSAGE' | translate }}" required/>
+                        <textarea rows="10" cols="100" class="form-control" id="messagetext" name="messagetext"
+                                  ng-model="message.text" placeholder="{{ 'CONTACTS_MESSAGE' | translate }}" required/>
                         <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                         <span id="messagestatus" class="sr-only">(success)</span>
                     </div>
@@ -275,29 +268,44 @@
                                         on-success="setResponse(response)"
                                         on-expire="cbExpiration()">
                                 </div>
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+                        <!-- /.col-lg-6 -->
                         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                         <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                             <div class="input-group">
                                 <!-- Spinner -->
-                                <div ng-show="spinnerloading" id="loading-block"> </div>
+                                <div ng-show="spinnerloading" id="loading-block"></div>
 
-                                <div class="alert alert-warning" role="alert" ng-show="startupmessage">{{ 'CONTACTS_STARTUP_MESSAGE' | translate }}</div>
-                                <div class="alert alert-success" role="alert" ng-show="okmessage">{{ 'SERVICE_DIALOG_OK_MESSAGE' | translate }}</div>
-                                <div class="alert alert-danger" role="alert" ng-show="errormessage">{{ 'CONTACTS_ERROR_MESSAGE' | translate }}</div>
+                                <div class="alert alert-warning" role="alert" ng-show="startupmessage">{{
+                                    'CONTACTS_STARTUP_MESSAGE' | translate }}
+                                </div>
+                                <div class="alert alert-success" role="alert" ng-show="okmessage">{{
+                                    'SERVICE_DIALOG_OK_MESSAGE' | translate }}
+                                </div>
+                                <div class="alert alert-danger" role="alert" ng-show="errormessage">{{
+                                    'CONTACTS_ERROR_MESSAGE' | translate }}
+                                </div>
 
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
-                    </div><!-- /.row -->
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+                        <!-- /.col-lg-6 -->
+                    </div>
+                    <!-- /.row -->
 
                     <div class="row">
-                        <div class="col-md-6"><button id="messageSubmit" class="btn btn-success col-lg-12" ng-disabled="messageForm.$invalid" type="submit">{{ 'SEND' | translate }}</button></div>
-                        <div class="col-md-6"><button class="btn btn-warning col-lg-12"  ng-click="closeDialog()">Відміна</button></div>
+                        <div class="col-md-6">
+                            <button id="messageSubmit" class="btn btn-primary col-lg-12"
+                                    ng-disabled="messageForm.$invalid" type="submit">{{ 'SEND' | translate }}
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-warning col-lg-12" ng-click="closeDialog()">Відміна</button>
+                        </div>
                     </div>
                 </form>
-                <!-- END CONTACT FORM -->
-
             </div>
         </div>
     </div>

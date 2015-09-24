@@ -3,11 +3,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                        <p>
-                            <image src="../resources/img/main_dog.jpg"/>
-                        </p>
-                    </div>
                     <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
                         <h2>{{ 'ANIMAL_DETAILED_EDIT' | translate }}</h2>
                     </div>
@@ -17,11 +12,13 @@
     </div>
 
     <!-- Spinner -->
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="position: absolute; z-index: 999; top: 50%;" id="loading-block" ng-show="contentLoading" />
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 admin-anim-spin"
+         id="loading-block" ng-show="contentLoading"/>
 
     <!-- Error message -->
     <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert" ng-repeat="alert in errors">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert"
+             ng-repeat="alert in errors">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{alert.msg}}
         </div>
     </div>
@@ -29,7 +26,7 @@
     <div class="container" ng-hide="contentLoading || (errors.length > 0)">
         <form name="animalEditor" ng-submit="submit(animalEditor.$valid)" novalidate>
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-default">
                     <div class="row">
 
                         <!-- Animal photo -->
@@ -38,8 +35,10 @@
                                  ng-src="{{ animalImage }}">
                             <img class="img-responsive img-thumbnail center-block" ng-show="imageFile"
                                  ng-src="data:{{imageFile.filetype}};base64,{{imageFile.base64}}">
+
                             <p ng-show="animalEditor.photo.$invalid"
-                               class="help-block error" style="color: #a94442;">{{ 'ERROR_FILE_SIZE_TO_LARGE' | translate }}</p>
+                               class="help-block error er-color">{{ 'ERROR_FILE_SIZE_TO_LARGE' |
+                                translate }}</p>
                         </div>
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 panel-body">
@@ -59,7 +58,8 @@
                             <hr>
 
                             <!-- Animal breed -->
-                            <div class="input-group" ng-class="{ 'has-error' : animalEditor.breed.$invalid && !animalForm.breed.$pristine }">
+                            <div class="input-group"
+                                 ng-class="{ 'has-error' : animalEditor.breed.$invalid && !animalForm.breed.$pristine }">
                                 <span class="input-group-addon">{{ 'BREED' | translate }}</span>
                                 <input ng-if="currentLanguage === 'uk'"
                                        type="text" ng-model="animal.breed"
@@ -78,7 +78,8 @@
                             <!-- Animal size -->
                             <div class="input-group">
                                 <span class="input-group-addon">{{ 'SIZE' | translate }}</span>
-                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.size" title="{{ 'NOT_SELECTED' | translate }}">
+                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.size"
+                                    title="{{ 'NOT_SELECTED' | translate }}">
                                     <li class="nya-bs-option" value="NONE"><a>{{ 'NOT_IDENTIFIED' |
                                         translate }}</a></li>
                                     <li class="nya-bs-option" value="SMALL"><a>{{ 'SIZE_SMALL' | translate }}</a>
@@ -94,7 +95,8 @@
                             <!-- Animal sex -->
                             <div class="input-group">
                                 <span class="input-group-addon">{{ 'SEX' | translate }}</span>
-                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.sex" title="{{ 'NOT_SELECTED' | translate }}">
+                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.sex"
+                                    title="{{ 'NOT_SELECTED' | translate }}">
                                     <li class="nya-bs-option" value="NONE"><a>{{ 'NOT_IDENTIFIED' |
                                         translate }}</a></li>
                                     <li class="nya-bs-option" value="MALE"><a>{{ 'SEX_MALE' | translate }}</a>
@@ -118,7 +120,8 @@
                             <!-- Animal cites -->
                             <div class="input-group">
                                 <span class="input-group-addon">CITES</span>
-                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.cites" title="{{ 'NOT_SELECTED' | translate }}">
+                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.cites"
+                                    title="{{ 'NOT_SELECTED' | translate }}">
                                     <li class="nya-bs-option" value="NONE"><a>{{ 'NOT_IDENTIFIED' |
                                         translate }}</a></li>
                                     <li class="nya-bs-option" value="CITES1"><a>CITES I</a></li>
@@ -132,7 +135,8 @@
                             <!-- Animal service -->
                             <div class="input-group">
                                 <span class="input-group-addon">{{ 'TYPE' | translate }}</span>
-                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.service" title="{{ 'NOT_SELECTED' | translate }}">
+                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.service"
+                                    title="{{ 'NOT_SELECTED' | translate }}">
                                     <li nya-bs-option="animalService in animalServices.values">
                                         <a ng-if="currentLanguage === 'uk'">{{ animalService.service }}</a>
                                         <a ng-if="currentLanguage !== 'uk'">{{ animalService.serviceEn }}</a>
@@ -148,7 +152,8 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 panel-body">
 
                             <!-- Animal transpounder number -->
-                            <div class="input-group" ng-class="{ 'has-error' : animalEditor.transpNumber.$invalid && !animalForm.transpNumber.$pristine }">
+                            <div class="input-group"
+                                 ng-class="{ 'has-error' : animalEditor.transpNumber.$invalid && !animalForm.transpNumber.$pristine }">
                                 <span class="input-group-addon">{{ 'TRANSPONDER' | translate }}</span>
                                 <input type="text" class="form-control" aria-describedby="basic-addon1"
                                        name="transpNumber" ng-model="animal.transpNumber"
@@ -160,7 +165,8 @@
                             <!-- Animal date of birth -->
                             <p class="input-group" ng-controller="DPController">
                                 <span class="input-group-addon">{{ 'BIRTH_DATE' | translate }}</span>
-                                <input type="text" class="form-control border-right-radius" datepicker-popup="yyyy-MM-dd"
+                                <input type="text" class="form-control border-right-radius"
+                                       datepicker-popup="yyyy-MM-dd"
                                        ng-model="animal.dateOfBirth"
                                        is-open="opened" datepicker-options="dateOptions"
                                        current-text="{{ 'TODAY' | translate }}" clear-text="{{ 'CLEAR' | translate }}"
@@ -172,7 +178,8 @@
                             <!-- Animal status -->
                             <div class="input-group">
                                 <span class="input-group-addon">{{ 'ANIMAL_ACTIVE' | translate }}</span>
-                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.active" title="{{ 'NOT_SELECTED' | translate }}">
+                                <ol class="nya-bs-select nya-bs-select-mod" ng-model="animal.active"
+                                    title="{{ 'NOT_SELECTED' | translate }}">
                                     <li class="nya-bs-option" value="true"><a>{{ 'YES' | translate}}</a></li>
                                     <li class="nya-bs-option" value="false"><a>{{ 'NO' | translate}}</a></li>
                                 </ol>
@@ -182,7 +189,8 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 panel-body">
 
                             <!-- Animal token number -->
-                            <div class="input-group" ng-class="{ 'has-error' : animalEditor.tokenNumber.$invalid && !animalForm.tokenNumber.$pristine }">
+                            <div class="input-group"
+                                 ng-class="{ 'has-error' : animalEditor.tokenNumber.$invalid && !animalForm.tokenNumber.$pristine }">
                                 <span class="input-group-addon">{{ 'TOKEN_NUMBER' | translate }}</span>
                                 <input type="text" class="form-control" aria-describedby="basic-addon1"
                                        name="tokenNumber" ng-model="animal.tokenNumber"
@@ -194,7 +202,8 @@
                             <!-- Animal date of registration -->
                             <p class="input-group" ng-controller="DPController">
                                 <span class="input-group-addon">{{ 'REGISTRATION_DATE' | translate }}</span>
-                                <input type="text" class="form-control border-right-radius" datepicker-popup="yyyy-MM-dd"
+                                <input type="text" class="form-control border-right-radius"
+                                       datepicker-popup="yyyy-MM-dd"
                                        ng-model="animal.dateOfRegister"
                                        is-open="opened" datepicker-options="dateOptions"
                                        current-text="{{ 'TODAY' | translate }}" clear-text="{{ 'CLEAR' | translate }}"
@@ -205,7 +214,8 @@
                             <hr>
 
                             <!-- Animal address -->
-                            <div class="input-group" ng-class="{ 'has-error' : animalEditor.address.$invalid && !animalForm.address.$pristine }">
+                            <div class="input-group"
+                                 ng-class="{ 'has-error' : animalEditor.address.$invalid && !animalForm.address.$pristine }">
                                 <span class="input-group-addon">{{ 'ADDRESS' | translate }}</span>
                                 <input type="text" class="form-control" aria-describedby="basic-addon1"
                                        name="address" ng-model="animal.address"
@@ -217,11 +227,11 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success panel-body">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-default panel-body">
                     <div class="form-group">
                         <label for="comment">{{ 'DESCRIPTION' | translate }}:</label>
                         <textarea class="form-control" rows="3" id="comment" ng-model="animal.description"
-                              name="description"></textarea>
+                                  name="description"></textarea>
                     </div>
                 </div>
             </div>
@@ -229,20 +239,22 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-5 col-lg-6 col-lg-offset-6 detailed-buttons">
                     <button type="submit" ng-disabled="animalEditor.$invalid || errors.length > 0" id="submit-form"
-                            class="btn btn-warning col-sm-3 col-md-3 col-lg-3" >{{ 'SAVE' | translate }}</button>
+                            class="btn btn-warning col-sm-3 col-md-3 col-lg-3">{{ 'SAVE' | translate }}
+                    </button>
                     <div class="col-sm-3 col-md-3 col-lg-3"><a
                             class="btn btn-danger col-xs-12 col-sm-12 col-md-12 col-lg-12"
-                            href ng-click="deleteImage()" role="button" ng-disabled="errors.length > 0">{{ 'DELETE_IMAGE' | translate }}</a>
+                            href ng-click="deleteImage()" role="button" ng-disabled="errors.length > 0">{{
+                        'DELETE_IMAGE' | translate }}</a>
                     </div>
                     <div class="col-sm-3 col-md-3 col-lg-3">
                         <a class="btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" href role="button"
                            onclick="document.getElementById('upload').click();"
                            ng-disabled="errors.length > 0">{{ 'CHANGE_PHOTO' | translate }}</a>
-                        <input type="file" id="upload" name="photo" ng-model="imageFile" style="visibility: hidden;"
-                               maxsize="5000" accept="image/*" base-sixty-four-input />
+                        <input type="file" id="upload" name="photo" ng-model="imageFile" class="invisible"
+                               maxsize="5000" accept="image/*" base-sixty-four-input/>
                     </div>
                     <div class="col-sm-3 col-md-3 col-lg-3"><a
-                            class="btn btn-success col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                            class="btn btn-primary col-xs-12 col-sm-12 col-md-12 col-lg-12"
                             href="#/ua/user/home/animals/{{ animal.id }}" role="button">{{ 'BACK' | translate }}</a>
                     </div>
                 </div>

@@ -74,8 +74,8 @@ IMG.displayed {
 }
 
 .paginator > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-    background-color: #5cb85c;
-    border-color: #4cae4c;
+    background-color: #337ab7;
+    border-color: #337ab7;
 }
 
 .rows-count {
@@ -172,6 +172,10 @@ IMG.displayed {
     background: url('../img/animalColors/animal-color-sprite.png') no-repeat;
 }
 
+.onhover{
+    margin:5px;
+    cursor: pointer;
+}
 .onhover:hover {
     border: 1px solid black;
     border-radius: 3px;
@@ -450,12 +454,17 @@ IMG.displayed {
     background-position: 0px -290px; /* Icon background position in sprite */
 }
 
-.simple-side-padding:hover {
-    border: 1px solid #99CC99;
-}
-
 .simple-side-padding {
     border: 1px solid #ffffff;
+    position: relative;
+    height:500px;
+    margin-bottom: 25px;
+}
+.simple-side-padding-fl {
+    border: 1px solid #ffffff;
+    position: relative;
+    height:420px;
+    margin-bottom: 10px;
 }
 
 .soc-fb {

@@ -3,11 +3,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                        <p>
-                            <image src="../resources/img/main_dog.jpg"/>
-                        </p>
-                    </div>
                     <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
                         <h2>{{ 'ANIMAL_DETAILED_INFO' | translate }}</h2>
                     </div>
@@ -17,7 +12,8 @@
     </div>
 
     <!-- Spinner -->
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="position: absolute; z-index: 999; top: 50%;" id="loading-block" ng-show="contentLoading" />
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 admin-anim-spin"
+         id="loading-block" ng-show="contentLoading" />
 
     <!-- Error message -->
     <div class="container">
@@ -29,7 +25,7 @@
     <div class="container" ng-hide="contentLoading || (errors.length > 0)">
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-default">
                 <div class="row">
 
                     <!-- Animal photo -->
@@ -153,7 +149,7 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success panel-body">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-default panel-body">
                 <div class="form-group">
                     <label for="comment">{{ 'DESCRIPTION' | translate }}:</label>
                     <textarea class="form-control" rows="3" id="comment" ng-model="animal.description"
@@ -169,7 +165,7 @@
             </div>
 
             <!-- Animal owner -->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success table-responsive" ng-hide="error">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-default table-responsive" ng-hide="error">
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -199,7 +195,7 @@
                         href="#/ua/user/doctor/animals/medical_history/{{ animal.id }}" role="button">{{ 'MEDICAL_CARD'
                     | translate }}</a></div>
                 <div class="col-sm-6 col-md-6 col-lg-6"><a
-                        class="btn btn-success col-xs-12 col-sm-12 col-md-12 col-lg-12" href="#/ua/user/doctor/animals"
+                        class="btn btn-primary col-xs-12 col-sm-12 col-md-12 col-lg-12" href="#/ua/user/doctor/animals"
                         role="button">{{ 'BACK' | translate }}</a></div>
             </div>
         </div>

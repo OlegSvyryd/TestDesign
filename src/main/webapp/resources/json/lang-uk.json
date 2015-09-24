@@ -292,7 +292,12 @@
   "HTTP_401": "401: Помилка доступу, увійдіть або зареєструйтесь",
   "HTTP_404": "Помилка 404: інформацію не знайдено",
   "HTTP_500": "500: Помилка на сервері, вибачте за тимчасові незручності",
-  
+
+  "FORGET_PASS": "Забули пароль?",
+  "SEND_NEW_PASS": "Отримати новий пароль",
+  "EMAIL_TO_SEND_NEW_PASS": "Email на який буде відправлено новий пароль:",
+  "ERROR": "Помилка:",
+
   "AuthorizationResource.registerUser.arg1.socialLogin": "Помилка реєстрації! Невірний формат поля Логін",
   "AuthorizationResource.registerUser.arg1.name": "Помилка реєстрації! Невірний формат поля Ім'я",
   "AuthorizationResource.registerUser.arg1.surname": "Помилка реєстрації! Невірний формат поля Фамілія",

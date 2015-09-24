@@ -1,135 +1,147 @@
 <section id="loginpage">
-<div class="jumbotron">     
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-lg-12">
-					<div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-						<p><image src="../resources/img/main_dog.jpg"/></p>
-					</div>
-					<div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
-						<h2>{{ 'ENTER' | translate }}</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-</div>
-<br>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
+                        <h2>{{ 'ENTER' | translate }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
 
-<div class="container">
-<div class="col-xs-1 col-sm-1 col-md-1 col-lg-2"></div>
-	<div class="row">
-		<div class="col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
-		<div class="col-xs-12 col-sm-8 col-md-4 col-lg-4" id="loginblock">
-		<form>
-			<br>
-			<div class="form-group">
-	    		<label class="col-xs-5 col-sm-5 col-lg-5 control-label" >{{ 'LOGIN' | translate }}:</label>
-	    		<div class="col-xs-12 col-sm-12 col-lg-12">
-	      		<input class="form-control" id="login" ng-model="login.userLogin">
-	    		</div>
-	    	</div>
-	    	<div class="form-group">		    			  		
-	    		<label class="col-xs-5 col-sm-5 col-lg-5 control-label" >{{ 'PASSWORD' | translate }}:</label>
-	    		<div class="col-xs-12 col-sm-12 col-lg-12">
-	      		<input class="form-control" type="password" id="password" ng-model="login.password">
-	    		</div>
-	    	</div>
-	    	<div class="form-group checkbox">
-	  			<label class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></label>	  			
-				<label class="col-xs-10 col-sm-10 col-md-8 col-lg-8">
-				<input class="form-group" type="checkbox" ng-model="login.memoryMe">
-				{{ 'REMEMBER_ME' | translate }}</label>
-			</div>
-	    	
-	  		<div class="form-group">
-		  		<label class="col-xs-12 col-sm-12 col-lg-12 control-label"></label>
-		  		<div class="col-xs-12 col-sm-12 col-lg-12">	  			
-				<button name="submit" type="submit" ng-click = "login()" 
-				class="btn btn-success btn-lg col-xs-12 col-sm-12 col-lg-12">
-				{{ 'ENTER' | translate }}</button>
-				</div>	  			 			
-			</div>
-			
-	  		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 socialButtons">	  		
-				<div class = "buttonSing">
-					<a ng-click = "loginTwitter()" class="btn btn-sm btn-block btn-social btn-twitter">
-					    <i class="fa fa-twitter"></i> {{ 'ENTER_TWITTER' | translate }}
-					</a>
-				</div>
-				<div class = "buttonSing">
-					<a ng-click = "loginFacebook()" class="btn btn-sm btn-block btn-social btn-facebook">
-					    <i class="fa fa-facebook"></i> {{ 'ENTER_FACEBOOK' | translate }}
-					</a>
-				</div>
-				<div class = "buttonSing">
-					<a ng-click = "loginGoogle()" class="btn btn-sm btn-block btn-social btn-google" id="googleButton">
-					    <i class="fa fa-google"></i> {{ 'ENTER_GOOGLE' | translate }}
-					</a>
-				</div>
-				
+    <div class="container">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-2"></div>
+        <div class="row">
+            <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
+            <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4" id="loginblock">
+                <form>
+                    <br>
+                    <div class="form-group">
+                        <label class="col-xs-5 col-sm-5 col-lg-5 control-label">{{ 'LOGIN' | translate }}:</label>
 
-			</div>
-			<div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">				
-				<p>&nbsp;&nbsp;</p>
-				<p><a href="#ua/user/registration">{{ 'REGISTRATION' | translate }}</a></p>
-			</div>
-			
-			<!-- password renew -->
-			<div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">				
-				<p>&nbsp;&nbsp;</p>
-				<p ng-click="showRenewBlock()" id = "passwordRenewBlock"> <a href>Forget password?</a></p>				
-			</div>
-		</form>				
-			<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-hide = "IsHidden" id="passwordUpdateBlock">
-			
-			<form name="restoreForm" novalidate>
-				<div class="form-group" data-ng-class="{'has-error':restoreForm.userEmail.$invalid && !restoreForm.userEmail.$pristine}">
-		    		<label class="col-xs-12 col-sm-12 col-lg-12 control-label" >Email to send new Password:</label>
-		    		<div class="col-xs-12 col-sm-12 col-lg-12">
-			      		<input class="form-control" name="userEmail" ng-model="mailToRestore" 
-			      		ng-required="true" pattern="[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
-			      		<label class="col-xs-12 col-sm-12 col-lg-12 control-label"></label>
-	    			</div>
-	    		</div>
-	    		<div class="col-xs-12 col-sm-12 col-lg-12">
-		    		<button ng-click="restorePasword()" class="form-group btn btn-success btn-md col-xs-12 col-sm-12 col-md-7 col-lg-7" 
-							id = "passwordRenew" type="submit" ng-disabled="restoreForm.$invalid">Send new Password</button>
-				</div>	    		
-			</form>
-			</div>
-			
-		</div>		
-		</div>
-		<br>
-		<div class="col-xs-0 col-sm-2 col-md-4 col-lg-4"></div>
-		<div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
-			<div ng-show="confirmRestoreMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-success" role="alert">
-	  			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	  			<span class="sr-only">Error:</span> {{ 'RESTORE_SUCCESS' | translate }}
-			</div>
-			<div ng-show="errorRestoreMessage1" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
-	  			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	  			<span class="sr-only">Error:</span> {{ 'RESTORE_ERROR1' | translate }}
-			</div>
-			<div ng-show="errorRestoreMessage2" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
-	  			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	  			<span class="sr-only">Error:</span> {{ 'RESTORE_ERROR2' | translate }}
-			</div>
-			<div ng-show="errorRestoreMessage3" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
-	  			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	  			<span class="sr-only">Error:</span> {{ 'RESTORE_ERROR3' | translate }}
-			</div>
-			<div ng-show="errorMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
-	  			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	  			<span class="sr-only">Error:</span> {{ 'LOGIN_ERROR' | translate }}
-			</div>
-			<div ng-show="errorConfirmMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
-	  			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	  			<span class="sr-only">Error:</span> {{ 'LOGIN_CONFIRM_ERROR' | translate }}
-			</div>
-		</div>
-		
-	</div>
-	
-</div> <!-- /container -->
+                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                            <input class="form-control" id="login" ng-model="login.userLogin">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-5 col-sm-5 col-lg-5 control-label">{{ 'PASSWORD' | translate }}:</label>
+
+                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                            <input class="form-control" type="password" id="password" ng-model="login.password">
+                        </div>
+                    </div>
+                    <div class="form-group checkbox">
+                        <label class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></label>
+                        <label class="col-xs-10 col-sm-10 col-md-8 col-lg-8">
+                            <input class="form-group" type="checkbox" ng-model="login.memoryMe">
+                            {{ 'REMEMBER_ME' | translate }}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-12 col-lg-12 control-label"></label>
+
+                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                            <button name="submit" type="submit" ng-click="login()"
+                                    class="btn btn-success btn-lg-log btn-lg col-xs-12 col-sm-12 col-lg-12">
+                                {{ 'ENTER' | translate }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 socialButtons">
+                        <div class="buttonSing">
+                            <a ng-click="loginTwitter()" class="btn btn-sm btn-block btn-social btn-twitter">
+                                <i class="fa fa-twitter"></i> {{ 'ENTER_TWITTER' | translate }}
+                            </a>
+                        </div>
+                        <div class="buttonSing">
+                            <a ng-click="loginFacebook()" class="btn btn-sm btn-block btn-social btn-facebook">
+                                <i class="fa fa-facebook"></i> {{ 'ENTER_FACEBOOK' | translate }}
+                            </a>
+                        </div>
+                        <div class="buttonSing">
+                            <a ng-click="loginGoogle()" class="btn btn-sm btn-block btn-social btn-google"
+                               id="googleButton">
+                                <i class="fa fa-google"></i> {{ 'ENTER_GOOGLE' | translate }}
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <p>&nbsp;&nbsp;</p>
+
+                        <p><a class="black-color" href="#ua/user/registration">{{ 'REGISTRATION' | translate }}</a></p>
+                    </div>
+
+                    <!-- password renew -->
+                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <p>&nbsp;&nbsp;</p>
+
+                        <p ng-click="showRenewBlock()" id="passwordRenewBlock"><a class="black-color" href>{{ 'FORGET_PASS' | translate }}</a></p>
+                    </div>
+                </form>
+                <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-hide="IsHidden"
+                     id="passwordUpdateBlock">
+
+                    <form name="restoreForm" novalidate>
+                        <div class="form-group"
+                             data-ng-class="{'has-error':restoreForm.userEmail.$invalid && !restoreForm.userEmail.$pristine}">
+                            <label class="col-xs-12 col-sm-12 col-lg-12 control-label">{{ 'EMAIL_TO_SEND_NEW_PASS' | translate }}</label>
+
+                            <div class="col-xs-12 col-sm-12 col-lg-12">
+                                <input class="form-control" name="userEmail" ng-model="mailToRestore"
+                                       ng-required="true" pattern="[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+                                <label class="col-xs-12 col-sm-12 col-lg-12 control-label"></label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-lg-12">
+                            <button ng-click="restorePasword()"
+                                    class="form-group btn btn-success btn-md-log col-xs-12 col-sm-12 col-md-7 col-lg-7"
+                                    id="passwordRenew" type="submit" ng-disabled="restoreForm.$invalid">{{ 'SEND_NEW_PASS' | translate }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <br>
+
+        <div class="col-xs-0 col-sm-2 col-md-4 col-lg-4"></div>
+        <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
+            <div ng-show="confirmRestoreMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-success"
+                 role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> {{ 'RESTORE_SUCCESS' | translate }}
+            </div>
+            <div ng-show="errorRestoreMessage1" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger"
+                 role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> {{ 'RESTORE_ERROR1' | translate }}
+            </div>
+            <div ng-show="errorRestoreMessage2" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger"
+                 role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> {{ 'RESTORE_ERROR2' | translate }}
+            </div>
+            <div ng-show="errorRestoreMessage3" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger"
+                 role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> {{ 'RESTORE_ERROR3' | translate }}
+            </div>
+            <div ng-show="errorMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> {{ 'LOGIN_ERROR' | translate }}
+            </div>
+            <div ng-show="errorConfirmMessage" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger"
+                 role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> {{ 'LOGIN_CONFIRM_ERROR' | translate }}
+            </div>
+        </div>
+
+    </div>
 </section>

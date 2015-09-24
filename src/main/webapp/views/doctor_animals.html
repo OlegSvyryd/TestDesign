@@ -3,11 +3,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                        <p>
-                            <image src="../resources/img/main_dog.jpg"/>
-                        </p>
-                    </div>
                     <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
                         <h2>{{ 'ANIMAL_REGISTER' | translate }}</h2>
                     </div>
@@ -17,11 +12,13 @@
     </div>
 
     <!-- Spinner -->
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="position: absolute; z-index: 999; top: 50%;" id="loading-block" ng-show="contentLoading" />
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 admin-anim-spin"
+         id="loading-block" ng-show="contentLoading"/>
 
     <!-- Error message -->
     <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert" ng-repeat="alert in errors">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert"
+             ng-repeat="alert in errors">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{alert.msg}}
         </div>
     </div>
@@ -35,7 +32,8 @@
                 <form name="animalFilter" ng-submit="submit(animalFilter.$valid)" novalidate>
 
                     <!-- Transpounder filter -->
-                    <div class="input-group" ng-class="{ 'has-error' : animalFilter.transpNumber.$invalid && !animalFilter.transpNumber.$pristine }">
+                    <div class="input-group"
+                         ng-class="{ 'has-error' : animalFilter.transpNumber.$invalid && !animalFilter.transpNumber.$pristine }">
                         <span class="input-group-addon">{{ 'TRANSPONDER' | translate }}</span>
                         <input type="text" class="form-control" aria-describedby="basic-addon1"
                                ng-model="filter.animal.transpNumber"
@@ -63,7 +61,8 @@
                         <span class="input-group-addon">{{ 'REGISTRATION_DATE' | translate }}</span>
                         <input type="text" class="form-control border-right-radius" datepicker-popup="yyyy-MM-dd"
                                ng-model="filter.animal.dateOfRegister"
-                               is-open="opened" datepicker-options="dateOptions" current-text="{{ 'TODAY' | translate }}"
+                               is-open="opened" datepicker-options="dateOptions"
+                               current-text="{{ 'TODAY' | translate }}"
                                clear-text="{{ 'CLEAR' | translate }}"
                                close-text="{{ 'CLOSE' | translate }}" close-text="Close"
                                ng-click="open($event)"/>
@@ -86,7 +85,8 @@
                     <hr>
 
                     <!-- Breed filter -->
-                    <div class="input-group" ng-class="{ 'has-error' : animalFilter.breed.$invalid && !animalFilter.breed.$pristine }">
+                    <div class="input-group"
+                         ng-class="{ 'has-error' : animalFilter.breed.$invalid && !animalFilter.breed.$pristine }">
                         <span class="input-group-addon">{{ 'BREED' | translate }}</span>
                         <input ng-if="currentLanguage === 'uk'"
                                type="text" ng-model="filter.animal.breed"
@@ -114,7 +114,8 @@
                     <hr>
 
                     <button type="submit" ng-disabled="animalFilter.$invalid" id="submit-form"
-                            class="btn btn-success col-xs-5 col-sm-6 col-md-5 col-lg-5" >{{ 'FILTER' | translate }}</button>
+                            class="btn btn-primary col-xs-5 col-sm-6 col-md-5 col-lg-5">{{ 'FILTER' | translate }}
+                    </button>
 
                     <div class="col-xs-2 col-sm-0 col-md-2 col-lg-2"></div>
                     <a class="btn btn-danger col-xs-5 col-sm-6 col-md-5 col-lg-5" href ng-click="reset()" role="button"
@@ -128,7 +129,7 @@
             </div>
 
             <!-- Animals list -->
-            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 panel panel-success table-responsive" ng-hide="error">
+            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 panel panel-default table-responsive" ng-hide="error">
                 <table class="table table-hover table-vcenter">
                     <thead>
                     <tr>
@@ -152,7 +153,9 @@
                         <td>{{ animal.color }}</td>
                         <td>{{ animal.transpNumber }}</td>
                         <td>{{ animal.dateOfBirth }}</td>
-                        <td><a class="btn btn-md" href="#/ua/user/doctor/animals/{{ animal.id }}" role="button"><image src="../resources/img/ArrowDownGreenGloss.gif"></image></a></td>
+                        <td><a class="btn btn-md" href="#/ua/user/doctor/animals/{{ animal.id }}" role="button">
+                            <image src="../resources/img/ArrowDownGreenGloss.gif"></image>
+                        </a></td>
                     </tr>
                     </tbody>
                 </table>
@@ -160,7 +163,7 @@
 
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-success text-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-default text-center">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
 
                 <!-- Pagination -->
@@ -175,7 +178,7 @@
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rows-count">
                     <div class="btn-group" dropdown keyboard-nav>
                         <div class="btn-group" dropdown is-open="status.isopen">
-                            <button id="single-button" type="button" class="btn btn-success" dropdown-toggle
+                            <button id="single-button" type="button" class="btn btn-primary" dropdown-toggle
                                     ng-disabled="disabled">
                                 {{ filter.limit }} <span class="caret"></span>
                             </button>

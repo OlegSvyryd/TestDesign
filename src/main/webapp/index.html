@@ -106,22 +106,17 @@
                             <li role="presentation" class="divider" ng-show="userRole == 'moderator'"></li>
                             <li><a href="#ua/user/admin/users" ng-show="userRole == 'moderator'">{{ 'NAV_USER_LIST' |
                                 translate }}</a></li>
-                            <!--li role="presentation" class="divider" ng-show="userRole == 'лікар'"></li-->
                             <li><a href="#ua/user/doctor/animals" ng-show="userRole == 'doctor'">{{
                                 'NAV_ANIMAL_LIST_FOR_DOCTOR' | translate }}</a></li>
                         </ul>
                     </li>
                 </ul>
-                <!-- Форма входу -->
+                <!-- Log In Form -->
                 <form class="navbar-form navbar-right nav-form" role="form" translate-cloak>
 
                     <label ng-show="session()">{{ 'NAV_WELCOME_MESSAGE' | translate }}: {{userName}}</label>
 
                     <div class="btn-group">
-                        <!--<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" id="nname">
-                            {{ 'LANGUAGE' | translate }}
-                        </button>-->
                         <i id="lang-button" class="fa fa-language dropdown-toggle" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false" title="{{ 'LANGUAGE' | translate }}"></i>
                         <ul class="dropdown-menu">
@@ -146,52 +141,16 @@
 <div class="ng-view" ng-cloak></div>
 
 <footer>
-    <!-- Скріпт для Facebook -->
-<!--
-    <div id="fb-root"></div>
-    <script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        if (localStorage.getItem('NG_TRANSLATE_LANG_KEY') == "uk")
-            js.src = "//connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v2.4"
-        else js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    &lt;!&ndash; Скріпт для Twitter &ndash;&gt;
-    <script>!function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + '://platform.twitter.com/widgets.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }
-    }(document, 'script', 'twitter-wjs');</script>
--->
-
     <div class="container" ng-controller="StarterPageController">
         <div class="row">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
                 <span class="copyright translate-cloak" translate-cloak>&copy; {{ 'LKP_LEV' | translate }} 2015</span>
             </div>
             <p class='col-xs-6 col-sm-3 col-md-2 col-lg-2 socials-group'>
-                <a class="fa fa-facebook" target="_blank" href="https://www.facebook.com/if056/" title="Facebook"></a>
-                <a class="fa fa-twitter" target="_blank" href="https://twitter.com/ifjava056" title="Twitter"></a>
-                <a class="fa fa-google-plus" target="_blank" href="https://plus.google.com/u/0/communities/111156557266308006018" title="Google+"></a>
+                <a class="fa fa-google-plus black-color rgh" target="_blank" href="https://plus.google.com/u/0/communities/111156557266308006018" title="Google+"></a>
+                <a class="fa fa-twitter black-color rgh" target="_blank" href="https://twitter.com/ifjava056" title="Twitter"></a>
+                <a class="fa fa-facebook black-color rgh" target="_blank" href="https://www.facebook.com/if056/" title="Facebook"></a>
             </p>
-<!--
-            <div class="col-xs-2 col-sm-1 col-sm-offset-4 col-md-1 col-md-offset-5 col-lg-1 col-lg-offset-6">
-                <div class="fb-follow" data-href="https://www.facebook.com/if056" data-layout="button_count"
-                     data-show-faces="false"></div>
-            </div>
-            <div class="col-xs-2 col-xs-offset-1 col-sm-1 col-sm-offset-1 col-md-1 col-md-offset-1 col-lg-1 col-lg-offset-1">
-                <a href="https://twitter.com/ifjava056" class="twitter-follow-button" data-show-count="true"
-                   data-lang="{{currentLanguage}}" data-show-screen-name="false" data-dnt="true">Follow @ifjava056</a>
-            </div>
--->
         </div>
     </div>
 </footer>

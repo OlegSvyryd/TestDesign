@@ -3,9 +3,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
-                        <p><img src="../resources/img/main_dog.jpg" width="70" /></p>
-                    </div>
                     <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
                         <h2>{{ 'REGISTRATION_OWNED' | translate }}</h2>
                     </div>
@@ -15,19 +12,20 @@
     </div>
 
     <!-- Spinner -->
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="top:250px;" ng-show="contentLoading"
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 marg-spin-250" ng-show="contentLoading"
          id="loading-block">
     </div>
 
     <!-- Error message -->
-    <h3 class="alert alert-danger col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="AnimalsDetailController" ng-hide="!errorsFlag">
+    <h3 class="alert alert-danger col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="AnimalsDetailController"
+        ng-hide="!errorsFlag">
         {{errorMessage}}<br>{{errors}}</h3>
 
     <div class="container" ng-show="!contentLoading">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-controller="AnimalsDetailController">
                 <form name="animalForm" ng-submit="submitForm(animalForm.$valid)" novalidate>
-                    <div class="panel panel-success">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">{{ 'REG_GENERAL_INFORMATION' | translate }}</h3>
                         </div>
@@ -39,16 +37,18 @@
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="form-group"
                                          ng-class="{ 'has-error' : animalForm.transponder.$invalid && !animalForm.transponder.$pristine }">
-                                        <label for="transpNumber" class="control-label">{{ 'TRANSPONDER' | translate }}:</label>
+                                        <label for="transpNumber" class="control-label">{{ 'TRANSPONDER' | translate
+                                            }}:</label>
 
                                         <input type="text" class="form-control" name="transponder"
-                                           id="transpNumber" placeholder="{{ 'TRANSPONDER' | translate }}"
-                                           ng-model="animal.transpNumber"
-                                           onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                                           ng-minlength="15" ng-maxlength="15"/>
+                                               id="transpNumber" placeholder="{{ 'TRANSPONDER' | translate }}"
+                                               ng-model="animal.transpNumber"
+                                               onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                               ng-minlength="15" ng-maxlength="15"/>
 
                                         <p ng-show="animalForm.transponder.$error.minlength && !animalForm.transponder.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_SHORT' | translate }}.</p>
+
                                         <p ng-show="animalForm.transponder.$error.maxlength && !animalForm.transponder.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_LONG' | translate }}.</p>
                                     </div>
@@ -57,7 +57,8 @@
                                 <!-- Animal token number -->
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="form-group">
-                                        <label for="tokenNumber" class="control-label">{{ 'TOKEN_NUMBER' | translate }}:</label>
+                                        <label for="tokenNumber" class="control-label">{{ 'TOKEN_NUMBER' | translate
+                                            }}:</label>
 
                                         <input type="text" class="form-control" name="tokenNumber"
                                                id="tokenNumber" placeholder="{{ 'TOKEN_NUMBER' | translate }}"
@@ -69,7 +70,8 @@
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" ng-controller="DPController">
                                     <div class="form-group"
                                          ng-class="{ 'has-error' : animalForm.dateOfBirth.$invalid && !animalForm.dateOfBirth.$pristine }">
-                                        <label for="birth-date" class="control-label required">{{ 'BIRTH_DATE' | translate }}:</label>
+                                        <label for="birth-date" class="control-label required">{{ 'BIRTH_DATE' |
+                                            translate }}:</label>
 
                                         <input id="birth-date" name="dateOfBirth"
                                                placeholder="{{ 'BIRTH_DATE' | translate }}"
@@ -87,8 +89,10 @@
 
                                         <p ng-show="animalForm.dateOfBirth.$error.required && !animalForm.dateOfBirth.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_EMPTY' | translate }}.</p>
+
                                         <p ng-show="animalForm.dateOfBirth.$error.minlength && !animalForm.dateOfBirth.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_SHORT' | translate }}.</p>
+
                                         <p ng-show="animalForm.dateOfBirth.$error.maxlength && !animalForm.dateOfBirth.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_LONG' | translate }}.</p>
 
@@ -102,15 +106,16 @@
                             <div class="row">
                                 <!-- Animal type -->
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <label for="animal-kind" class="control-label required">{{ 'REG_TYPE' | translate }}:</label><br>
+                                    <label for="animal-kind" class="control-label required">{{ 'REG_TYPE' | translate
+                                        }}:</label><br>
 
                                     <div class="input-group"
                                          ng-class="{ 'has-error' : animalForm.kind.$invalid && !animalForm.kind.$pristine }">
                                         <span class="input-group-addon">{{ 'TYPE' | translate }}:</span>
                                         <ol id="animal-kind" name="kind"
-                                            class="nya-bs-select nya-bs-select-mod"
+                                            class="nya-bs-select nya-bs-select-mod cur-poi"
                                             ng-model="animal.type"
-                                            ng-change="getAnimalBreeds()" style="cursor: pointer"
+                                            ng-change="getAnimalBreeds()"
                                             title="{{ 'NOT_SELECTED' | translate }}"
                                             required>
 
@@ -126,18 +131,22 @@
 
                                 <!-- Animal size -->
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <label for="animal-size" class="control-label required">{{ 'REG_SIZE' | translate }}:</label>
+                                    <label for="animal-size" class="control-label required">{{ 'REG_SIZE' | translate
+                                        }}:</label>
 
                                     <div class="input-group"
                                          ng-class="{ 'has-error' : animalForm.size.$invalid && !animalForm.size.$pristine }">
                                         <span class="input-group-addon">{{ 'SIZE' | translate }}:</span>
-                                        <ol class="nya-bs-select nya-bs-select-mod" id="animal-size"
-                                            name="size" style="cursor: pointer"
+                                        <ol class="nya-bs-select nya-bs-select-mod cur-poi" id="animal-size"
+                                            name="size"
                                             ng-model="animal.size" title="{{ 'NOT_SELECTED' | translate }}"
                                             required>
-                                            <li class="nya-bs-option" value="SMALL"><a>{{ 'SIZE_SMALL' | translate }}</a></li>
-                                            <li class="nya-bs-option" value="MIDDLE"><a>{{ 'SIZE_NORMAL' | translate }}</a></li>
-                                            <li class="nya-bs-option" value="LARGE"><a>{{ 'SIZE_LARGE' | translate }}</a></li>
+                                            <li class="nya-bs-option" value="SMALL"><a>{{ 'SIZE_SMALL' | translate
+                                                }}</a></li>
+                                            <li class="nya-bs-option" value="MIDDLE"><a>{{ 'SIZE_NORMAL' | translate
+                                                }}</a></li>
+                                            <li class="nya-bs-option" value="LARGE"><a>{{ 'SIZE_LARGE' | translate
+                                                }}</a></li>
                                         </ol>
                                     </div>
 
@@ -147,7 +156,8 @@
 
                                 <!-- Animal CITES -->
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <label for="animal-cites" class="control-label required">{{ 'REG_CITES' | translate }}:</label>
+                                    <label for="animal-cites" class="control-label required">{{ 'REG_CITES' | translate
+                                        }}:</label>
 
                                     <div class="input-group"
                                          ng-class="{ 'has-error' : animalForm.cites.$invalid && !animalForm.cites.$pristine }">
@@ -155,10 +165,11 @@
                                               title="{{ 'REG_CITES_TOOLTIP' | translate }}">CITES:
                                             <sup><span class="glyphicon glyphicon-question-sign"></span></sup>
                                         </span>
-                                        <ol class="nya-bs-select nya-bs-select-mod" id="animal-cites"
-                                            name='cites' style="cursor: pointer"
+                                        <ol class="nya-bs-select nya-bs-select-mod cur-poi" id="animal-cites"
+                                            name='cites'
                                             ng-model="animal.cites" title="{{ 'NOT_SELECTED' | translate }}" required>
-                                            <li class="nya-bs-option" value="NONE"><a>{{ 'NOT_OWNED' | translate }}</a></li>
+                                            <li class="nya-bs-option" value="NONE"><a>{{ 'NOT_OWNED' | translate }}</a>
+                                            </li>
                                             <li class="nya-bs-option" value="CITES1"><a>CITES I</a></li>
                                             <li class="nya-bs-option" value="CITES2"><a>CITES II</a></li>
                                             <li class="nya-bs-option" value="CITES3"><a>CITES III</a></li>
@@ -182,13 +193,15 @@
                                          name="sex">
                                         <div class="radio">
                                             <label for="m">
-                                                <input type="radio" id="m" name="sex" value="MALE" ng-model="animal.sex" required>
+                                                <input type="radio" id="m" name="sex" value="MALE" ng-model="animal.sex"
+                                                       required>
                                                 {{ 'SEX_MALE' | translate }}
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label for="w">
-                                                <input type="radio" id="w" name="sex" value="FEMALE" ng-model="animal.sex" required>
+                                                <input type="radio" id="w" name="sex" value="FEMALE"
+                                                       ng-model="animal.sex" required>
                                                 {{ 'SEX_FEMALE' | translate }}
                                             </label>
                                         </div>
@@ -200,17 +213,19 @@
 
                                 <!-- Animal breed -->
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                    <label class="required"  for="animal-breed">{{ 'INPUT_BREED' | translate }}:</label>
+                                    <label class="required" for="animal-breed">{{ 'INPUT_BREED' | translate }}:</label>
 
                                     <div class="form-group" name="breed"
                                          ng-class="{ 'has-error' : animalForm.breed.$invalid && !animalForm.breed.$pristine }">
-                                        <input ng-if="currentLanguage === 'uk'" type="text" ng-model="animal.breed" id="animal-breed" name="breed"
+                                        <input ng-if="currentLanguage === 'uk'" type="text" ng-model="animal.breed"
+                                               id="animal-breed" name="breed"
                                                typeahead="breed as breed.breedUa for breed in animalBreeds | filter:{breedUa:$viewValue} | limitTo:8"
                                                class="form-control border-right-radius"
                                                placeholder="{{ 'ANIMAL_BREED' | translate }}"
                                                required ng-minlength="2" ng-maxlength="45">
 
-                                        <input ng-if="currentLanguage !== 'uk'" type="text" ng-model="animal.breed" id="animal-breed" name="breed"
+                                        <input ng-if="currentLanguage !== 'uk'" type="text" ng-model="animal.breed"
+                                               id="animal-breed" name="breed"
                                                typeahead="breed as breed.breedEn for breed in animalBreeds | filter:{breedEn:$viewValue} | limitTo:8"
                                                class="form-control border-right-radius"
                                                placeholder="{{ 'ANIMAL_BREED' | translate }}"
@@ -218,8 +233,10 @@
 
                                         <p ng-show="animalForm.breed.$error.required && !animalForm.breed.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_EMPTY' | translate }}.</p>
+
                                         <p ng-show="animalForm.breed.$error.minlength && !animalForm.breed.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_SHORT' | translate }}.</p>
+
                                         <p ng-show="animalForm.breed.$error.maxlength && !animalForm.breed.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_LONG' | translate }}.</p>
 
@@ -230,8 +247,9 @@
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" ng-controller="DPController">
                                     <div class="form-group">
                                         <label for="dateOfSterilization" class="control-label"
-                                               title="{{ 'REG_STERILIZATION_TOOLTIP' | translate }}">{{ 'STERILIZATION_DATE' | translate }}:</label>
-                                            <sup><span class="glyphicon glyphicon-question-sign"></span></sup>
+                                               title="{{ 'REG_STERILIZATION_TOOLTIP' | translate }}">{{
+                                            'STERILIZATION_DATE' | translate }}:</label>
+                                        <sup><span class="glyphicon glyphicon-question-sign"></span></sup>
 
                                         <input id="dateOfSterilization" name="sterilization_date"
                                                placeholder="{{ 'STERILIZATION_DATE' | translate }}"
@@ -255,7 +273,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <!-- Окрас -->
-                            <div class="panel panel-success">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">{{ 'COLOR' | translate }}</h3>
                                 </div>
@@ -263,8 +281,9 @@
 
                                     <!-- Animal colors (on image) -->
                                     <label>{{ 'REG_GENERAL_COLOR' | translate }}:</label><br>
+
                                     <div class="thumbnail-special col-lg-2 col-md-2 col-sm-5 col-xs-12 left-margin onhover"
-                                         ng-repeat="color in colorTypes track by $index" ng-click="addColor(color)" style="margin:5px; cursor: pointer;">
+                                         ng-repeat="color in colorTypes track by $index" ng-click="addColor(color)">
 
                                         <a ng-href class="sprite-image" id="color-sprites-{{$index}}"></a>
                                         <label for="color-sprites-{{$index}}">{{color}}</label>
@@ -273,7 +292,8 @@
                                     <!-- Animal colors (text field) -->
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
                                          ng-class="{ 'has-error' : animalForm.color.$invalid && !animalForm.color.$pristine }">
-                                        <label for="animal-color" class="control-label required">{{ 'REG_MANUAL_COLOR' | translate }}:</label>
+                                        <label for="animal-color" class="control-label required">{{ 'REG_MANUAL_COLOR' |
+                                            translate }}:</label>
                                         <input type="text" class="form-control" name="color"
                                                id="animal-color" placeholder="{{ 'REG_MANUAL_COLOR' | translate }}"
                                                ng-model="animal.color" value="{{animal.color}}"
@@ -281,8 +301,10 @@
 
                                         <p ng-show="animalForm.color.$error.required && !animalForm.color.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_EMPTY' | translate }}.</p>
+
                                         <p ng-show="animalForm.color.$error.minlength && !animalForm.color.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_SHORT' | translate }}.</p>
+
                                         <p ng-show="animalForm.color.$error.maxlength && !animalForm.color.$pristine"
                                            class="help-block error">{{ 'REG_FIELD_LONG' | translate }}.</p>
 
@@ -294,7 +316,7 @@
 
                     <div class="row">
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                            <div class="panel panel-success">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">{{ 'REG_LOCATION_INFORMATION' | translate }}</h3>
                                 </div>
@@ -305,7 +327,8 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="form-group"
                                                  ng-class="{ 'has-error' : animalForm.userCountry.$invalid && !animalForm.userCountry.$pristine }">
-                                                <label for="country" class="control-label required">{{ 'REG_COUNTRY' | translate }}:</label>
+                                                <label for="country" class="control-label required">{{ 'REG_COUNTRY' |
+                                                    translate }}:</label>
                                                 <input type="text" class="form-control"
                                                        name="userCountry"
                                                        id="country" placeholder="{{ 'REG_COUNTRY' | translate }}"
@@ -314,8 +337,10 @@
 
                                                 <p ng-show="animalForm.userCountry.$error.required && !animalForm.userCountry.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_EMPTY' | translate }}.</p>
+
                                                 <p ng-show="animalForm.userCountry.$error.minlength && !animalForm.userCountry.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_SHORT' | translate }}.</p>
+
                                                 <p ng-show="animalForm.userCountry.$error.maxlength && !animalForm.userCountry.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_LONG' | translate }}.</p>
 
@@ -327,17 +352,20 @@
 
                                             <div class="form-group"
                                                  ng-class="{ 'has-error' : animalForm.userTown.$invalid && !animalForm.userTown.$pristine }">
-                                                <label for="town" class="control-label required">{{ 'REG_TOWN' | translate }}:</label>
+                                                <label for="town" class="control-label required">{{ 'REG_TOWN' |
+                                                    translate }}:</label>
                                                 <input type="text" class="form-control"
                                                        name="userTown"
                                                        id="town" placeholder="{{ 'REG_TOWN' | translate }}"
                                                        ng-model="address.town"
-                                                       required ng-minlength="3" ng-maxlength="40" />
+                                                       required ng-minlength="3" ng-maxlength="40"/>
 
                                                 <p ng-show="animalForm.userTown.$error.required && !animalForm.userTown.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_EMPTY' | translate }}.</p>
+
                                                 <p ng-show="animalForm.userTown.$error.minlength && !animalForm.userTown.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_SHORT' | translate }}.</p>
+
                                                 <p ng-show="animalForm.userTown.$error.maxlength && !animalForm.userTown.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_LONG' | translate }}.</p>
 
@@ -352,17 +380,20 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="form-group"
                                                  ng-class="{ 'has-error' : animalForm.userStreet.$invalid && !animalForm.userStreet.$pristine }">
-                                                <label for="animal-address" class="control-label required">{{ 'REG_ADDRESS' | translate }}:</label>
+                                                <label for="animal-address" class="control-label required">{{
+                                                    'REG_ADDRESS' | translate }}:</label>
                                                 <input type="text" class="form-control"
                                                        name="userStreet"
                                                        id="animal-address" placeholder="{{ 'REG_ADDRESS' | translate }}"
                                                        ng-model="address.street"
-                                                       required ng-minlength="3" ng-maxlength="40" />
+                                                       required ng-minlength="3" ng-maxlength="40"/>
 
                                                 <p ng-show="animalForm.userStreet.$error.required && !animalForm.userStreet.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_EMPTY' | translate }}.</p>
+
                                                 <p ng-show="animalForm.userStreet.$error.minlength && !animalForm.userStreet.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_SHORT' | translate }}.</p>
+
                                                 <p ng-show="animalForm.userStreet.$error.maxlength && !animalForm.userStreet.$pristine"
                                                    class="help-block error">{{ 'REG_FIELD_LONG' | translate }}.</p>
 
@@ -372,11 +403,13 @@
                                         <!-- Index -->
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="form-group">
-                                                <label for="animal-post-index" class="control-label">{{ 'REG_INDEX' | translate }}:</label>
+                                                <label for="animal-post-index" class="control-label">{{ 'REG_INDEX' |
+                                                    translate }}:</label>
                                                 <input type="text" class="form-control"
                                                        name="userIndex"
                                                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                                                       id="animal-post-index" placeholder="{{ 'REG_INDEX' | translate }}"
+                                                       id="animal-post-index"
+                                                       placeholder="{{ 'REG_INDEX' | translate }}"
                                                        ng-model="address.index"/>
                                             </div>
                                         </div>
@@ -388,15 +421,15 @@
 
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="panel panel-success">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">{{ 'REG_ADDITIONAL_INFO' | translate }}</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <label for="description" class="control-label">{{ 'REG_INPUT_ADDITIONAL_INFO' | translate }}:</label>
-                                    <textarea class="form-control" rows="5"
+                                    <label for="description" class="control-label">{{ 'REG_INPUT_ADDITIONAL_INFO' |
+                                        translate }}:</label>
+                                    <textarea class="form-control txar" rows="5"
                                               id="description"
-                                              style="overflow: overlay; resize:none;"
                                               ng-model="animal.description"
                                               placeholder="{{ 'REG_ADDITIONAL_INFO' | translate }}"></textarea>
                                 </div>
@@ -406,50 +439,53 @@
                         <!-- Image -->
                         <div ng-controller="AnimalImageController">
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                <div class="panel panel-success">
+                                <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title required">{{ 'REG_ANIMAL_IMAGE' | translate }}</h3>
                                     </div>
                                     <div class="panel-body" id="image-preview-block">
                                         <!-- Image button for load -->
-                                        <a class="btn btn-success col-lg-12 col-md-12 col-sm-12 col-xs-12" href role="button" id = "imgButton"
-                                           onclick="document.getElementById('fileInput').click();">{{ 'REG_UPLOAD_IMAGE' | translate }}</a>
+                                        <a class="btn btn-info col-lg-12 col-md-12 col-sm-12 col-xs-12" href
+                                           role="button" id="imgButton"
+                                           onclick="document.getElementById('fileInput').click();">{{ 'REG_UPLOAD_IMAGE'
+                                            | translate }}</a>
 
                                         <!-- Image progress bar -->
                                         <progressbar class="progress-striped active " value="uploader.queue[0].progress"
                                                      ng-show="uploader.isUploading"></progressbar>
 
                                         <input type="file" id="fileInput" name="photo"
-                                               accept="image/*"
-                                               style="visibility: hidden;"
-                                               required />
+                                               accept="image/*" class="invisible"
+                                               required/>
 
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:inline-block;">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 in-bl">
                                             <label>{{ 'REG_ORIGINAL_IMAGE' | translate }}:</label>
-                                            <img class="img-responsive img-thumbnail center-block"
-                                                 style="vertical-align: initial;"
+                                            <img class="img-responsive img-thumbnail center-block va-init"
                                                  ng-src="{{myCroppedImage}}"
                                                  alt="{{ 'ORIGINAL_IMAGE' | translate }}"/>
                                         </div>
 
                                         <p ng-show="animalForm.imageFile.$error.required && !animalForm.imageFile.$pristine"
                                            class="help-block error">{{ 'REG_IMAGE_NOT_CHOSEN' | translate }}.</p>
+
                                         <p ng-show="animalForm.imageFile.$error.maxsize && !animalForm.imageFile.$pristine"
                                            class="help-block error">{{ 'REG_IMAGE_OVERSIZE' | translate }}.</p>
+
                                         <p ng-show="animalForm.imageFile.$error.accept && !animalForm.imageFile.$pristine"
                                            class="help-block error">{{ 'REG_IMAGE_FORMAT' | translate }}.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" id = "image-edit-block">
-                                <div class="panel panel-success">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" id="image-edit-block">
+                                <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">{{ 'REG_EDIT_IMAGE' | translate }}</h3>
                                     </div>
                                     <div class="panel-body" id="image-edit-block-1">
 
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cropArea" id='imgCropEl' style="display:inline-block;">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cropArea in-bl"
+                                             id='imgCropEl'>
                                             <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
                                         </div>
                                     </div>
@@ -460,7 +496,8 @@
                     </div>
 
                     <button type="submit" ng-disabled="animalForm.$invalid"
-                            id="submit-form" class="btn btn-success">{{ 'REG_COMPLETE_REGISTRATION' | translate }}</button>
+                            id="submit-form" class="btn btn-primary">{{ 'REG_COMPLETE_REGISTRATION' | translate }}
+                    </button>
 
                 </form>
             </div>
@@ -468,7 +505,7 @@
     </div>
 </section>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
 
         //width of image
@@ -505,10 +542,10 @@
         });
 
         //resize image in container when window is resized
-        $(window).resize(function(){
+        $(window).resize(function () {
 
             //if image was choosen
-            if(flag) {
+            if (flag) {
 
                 //monitor actual width of image container
                 var actualWidth = $('#image-edit-block-1').width();
