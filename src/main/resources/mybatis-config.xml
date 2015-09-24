@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!-- Connect properties file-->
+    <properties resource="project.properties"/>
+
+    <!-- Configure MyBatis-specific settings -->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <setting name="defaultStatementTimeout" value="100"/>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
+    <!-- Use type aliases to avoid typing the full classname every time -->
+    <typeAliases>
+        <typeAlias alias="Animal" type="com.animals.app.domain.Animal"/>
+        <typeAlias alias="AnimalBreed" type="com.animals.app.domain.AnimalBreed"/>
+        <typeAlias alias="AnimalService" type="com.animals.app.domain.AnimalService"/>
+        <typeAlias alias="AnimalType" type="com.animals.app.domain.AnimalType"/>
+        <typeAlias alias="AnimalStatus" type="com.animals.app.domain.AnimalStatus"/>
+        <typeAlias alias="AnimalStatusLoger" type="com.animals.app.domain.AnimalStatusLoger"/>
+        <typeAlias alias="AnimalMedicalHistory" type="com.animals.app.domain.AnimalMedicalHistory"/>
+
+        <typeAlias alias="User" type="com.animals.app.domain.User"/>
+        <typeAlias alias="UserType" type="com.animals.app.domain.UserType"/>
+        <typeAlias alias="UserRole" type="com.animals.app.domain.UserRole"/>
+    </typeAliases>
+
+    <!-- Define type handelrs -->
+    <typeHandlers>
+        <typeHandler javaType="java.util.List" handler="com.animals.app.domain.UserRole"/>
+    </typeHandlers>
+
+    <!-- Configure the data source -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="java:/comp/env/jdbc/animals"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- Mapping files or classes -->
+    <mappers>
+        <mapper class="com.animals.app.repository.AnimalRepository" />
+        <mapper class="com.animals.app.repository.AnimalBreedRepository" />
+        <mapper class="com.animals.app.repository.AnimalServiceRepository" />
+        <mapper class="com.animals.app.repository.AnimalTypeRepository" />
+        <mapper class="com.animals.app.repository.AnimalStatusRepository" />
+        <mapper class="com.animals.app.repository.AnimalStatusLogerRepository" />
+        <mapper class="com.animals.app.repository.AnimalMedicalHistoryRepository" />
+
+        <mapper class="com.animals.app.repository.UserRepository" />
+        <mapper class="com.animals.app.repository.UserTypeRepository" />
+        <mapper class="com.animals.app.repository.UserRoleRepository" />
+    </mappers>
+
+    <!--
+
+                <dataSource type="JNDI">
+                    <property name="data_source" value="java:/comp/env/jdbc/animals"/>
+                </dataSource>
+            <dataSource type="POOLED">
+                <property name="driver" value="${database.driver}"/>
+                <property name="url" value="${database.url}"/>
+                <property name="username" value="${database.username}"/>
+                <property name="password" value="${database.password}"/>
+                <property name="poolPingQuery" value="SELECT id FROM animals WHERE id = 1" />
+                <property name="poolPingEnabled" value="true" />
+            </dataSource>
+-->
+</configuration>

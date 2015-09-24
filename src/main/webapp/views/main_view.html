@@ -1,0 +1,98 @@
+﻿<section id="main_view">
+    <!--
+        <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11">
+                            <blockquote>
+                                <p><h7>{{ 'QUOTE' | translate }}</h7><small><em>{{ 'QUOTE_AUTHOR' | translate }}</em></small></p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    -->
+
+    <div class="container" id="carousel-container">
+        <!--
+                <div class="row" style="background-image: url(../resources/img/lev_main.png); min-height: 500px;">
+                </div>
+        -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="slides_control">
+                <carousel interval="myInterval">
+                    <slide ng-repeat="slide in slides" active="slide.active">
+                        <img ng-src="{{slide.image}}">
+
+                        <div class="carousel-caption">
+                            <h4 ng-show="$index == 0">{{ 'ACTIVITIES_1' | translate }}</h4>
+                            <h4 ng-show="$index == 1">{{ 'ACTIVITIES_2' | translate }}</h4>
+                            <h4 ng-show="$index == 2">{{ 'ACTIVITIES_3' | translate }}</h4>
+                        </div>
+                    </slide>
+                </carousel>
+            </div>
+    </div>
+
+    <!-- Goals panel -->
+    <div class="container" id="goals-panel">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ 'ABOUT_US' | translate }}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 center-link">
+                        <h3>{{ 'GOAL' | translate }}</h3>
+                        <ul class="list-align-justify">
+                            <li>{{ 'GOAL_1' | translate }}</li>
+                            <li>{{ 'GOAL_2' | translate }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 center-link">
+                        <h3>{{ 'ACTIVITIES' | translate }}</h3>
+                        <ul class="list-align-justify">
+                            <li>{{ 'ACTIVITIES_1' | translate }}</li>
+                            <li>{{ 'ACTIVITIES_2' | translate }}</li>
+                            <li>{{ 'ACTIVITIES_3' | translate }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 center-link">
+                        <h3>{{ 'GOALS' | translate }}</h3>
+                        <ul class="list-align-justify">
+                            <li>{{ 'GOALS_1' | translate }}</li>
+                            <li>{{ 'GOALS_2' | translate }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partners panel -->
+    <div class="container" id="partners-panel">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ 'PARTNERS' | translate }}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 center-link">
+                        <p><a href="https://animal-id.info" target="_blank">
+                            <img class="displayed" src="../resources/img/animalid.jpg" height="150" width="250"></a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 center-link">
+                        <p><a href="http://www.petmaxx.com" target="_blank">
+                            <img class="displayed" src="../resources/img/petmaxx.jpg" height="150" width="250"></a></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 center-link">
+                        <p><a href="http://europetnet.com" target="_blank">
+                            <img class="displayed" src="../resources/img/europetnet.jpg" height="150" width="250"></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

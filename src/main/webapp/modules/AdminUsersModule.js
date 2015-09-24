@@ -1,0 +1,1 @@
+var adminUsersModule = angular.module("AdminUsersModule", ['AdminUsersValues']);

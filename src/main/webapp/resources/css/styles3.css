@@ -1,0 +1,187 @@
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    position: relative;
+    padding-top: 40px;
+}
+
+body:after {
+    content: '';
+    display: block;
+    height: 100px;
+}
+h3 {
+	text-align: center;
+}
+
+p {
+	display: inline-block;
+}
+
+
+.buttonSing {
+	padding: 0px;
+	margin: 0px;
+}
+
+.socials-group{
+    color: #333;
+    text-decoration: none;
+    float: right;
+}
+.fa{
+    font-size: 140% !important;
+    margin-right: 10px;
+    margin-top: 3px;
+    color: #333;
+}
+.fa:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+.socialButtons {
+	border: 1px solid green;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 20px;	
+	padding: 15px;
+}
+
+
+#loginblock {
+	border: 1px solid green;
+	border-radius: 5px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;	
+	padding: 15px;
+}
+
+#passwordUpdateBlock {
+	border: 1px solid green;
+	border-radius: 5px;	
+	padding: 10px;
+}
+
+#profileblock {
+	border-right: 1px solid green;
+	border-left: 1px solid green;
+	border-bottom: 1px solid green;
+	border-radius: 0px;
+	margin-top: -11px;
+	margin-right: auto;
+	margin-left: auto;	
+	padding: 15px;
+	padding-bottom:80px;
+	
+}
+
+#regblock {
+	border-right: 1px solid green;
+	border-left: 1px solid green;
+	/*border-radius: 5px;	*/
+	margin-top:-10px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: -60px;
+	padding: 20px;
+}
+
+.usualReg {
+	border: 1px solid green;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;	
+	padding: 15px;
+}
+
+.socialButtons {
+	text-align: center;	
+	margin-top: 10px;	
+	padding: 10px;
+}
+
+#GResult {
+	/*display:none;*/
+}
+
+#FBResult {
+	/*display:none;*/
+}
+
+#resGoogleTA{
+	padding-bottom: 0px;
+}
+
+/*carousel*/
+#slides_control img{
+    max-width: 100%;
+    height: auto;
+}
+#slides_control {
+    position:relative;
+    padding:0;
+}
+#goals-panel{
+    margin-top: 3%;
+}
+.list-align-justify{
+    text-align: justify;
+}
+#partners-panel{
+    margin-top: 3%;
+}
+.carousel-control.left{
+    display: none;
+}
+.carousel-control.right{
+    display: none;
+}
+.carousel-caption {
+    bottom: 12%;
+}
+.carousel-indicators {
+    bottom:10%;
+}
+#carousel-container{
+    margin: 0;
+    padding: 0;
+    width:100%;
+}
+.carousel-indicators li{
+    border-radius: 0;
+    width: 60px;
+    background-color: rgba(255,255,255,.95);
+}
+.carousel-indicators .active{
+    width:60px;
+    height: 12px;
+}
+#main_view{
+    margin-top: -40px;
+}
+.center-link{
+    text-align: center;
+}
+#lang-button{
+    margin-left: 10px;
+    margin-top: 3px;
+}
+.log-btn{
+    margin-left: 50px;
+    padding: 10px 15px;
+    color:#000;
+}
+.log-btn:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color:#3498db;
+}
+.nav-form{
+    padding-top: 6px;
+}

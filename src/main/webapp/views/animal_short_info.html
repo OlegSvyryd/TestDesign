@@ -1,0 +1,304 @@
+<section id="adoption">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
+                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                        <p>
+                            <image src="../resources/img/main_dog.jpg"/>
+                        </p>
+                    </div>
+                    <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11">
+                        <h2>{{ textTitle }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row" style="height: 50px"></div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 panel panel-success">
+            <div class="row">
+                <div class="panel-body">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 panel-body">
+                        <div class="image-wrapper" style="position: relative; width: auto; text-align: center;">
+                            <div class="center-block" style="position: relative; width: 200px; height: 200px;">
+                            <img class="img-responsive img-thumbnail center-block" src="{{ animalImage }}">
+                                <p class="soc-fb"
+                                   ng-if="service == 'adoption'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="facebook"
+                                   socialshare-type="feed"
+                                   socialshare-via="145634995501895"
+                                   socialshare-to=""
+                                   socialshare-from=""
+                                   socialshare-ref=""
+                                   socialshare-display="popup"
+                                   socialshare-media="{{ animal.image }}"
+                                   socialshare-source=""
+                                   socialshare-description="{{ 'ANIMAL_ADOPTION_FACEBOOK_SHARE_MESSAGE' | translate }}"
+                                   socialshare-text="{{ 'ANIMAL_SHARE_TEXT' | translate }}"
+                                   socialshare-caption="{{ 'ANIMAL_ADOPTION_FACEBOOK_SHARE_CAPTION' | translate }}"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/adoption/{{animal.id}}"
+                                   socialshare-redirect-uri="https://www.facebook.com/">
+                                </p>
+                                <p class="soc-gg"
+                                   ng-if="service == 'adoption'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="google+"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/adoption/{{animal.id}}" >
+                                </p>
+                                <p class="soc-tw"
+                                   ng-if="service == 'adoption'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="twitter"
+                                   socialshare-via="{{ 'LKP_LEV' | translate }}"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/adoption/{{animal.id}}"
+                                   socialshare-hashtags="adoption">
+                                </p>
+
+                                <p class="soc-fb"
+                                   ng-if="service == 'found'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="facebook"
+                                   socialshare-type="feed"
+                                   socialshare-via="145634995501895"
+                                   socialshare-to=""
+                                   socialshare-from=""
+                                   socialshare-ref=""
+                                   socialshare-display="popup"
+                                   socialshare-media="{{ animal.image }}"
+                                   socialshare-source=""
+                                   socialshare-description="{{ 'ANIMAL_FOUND_FACEBOOK_SHARE_MESSAGE' | translate }}"
+                                   socialshare-text="{{ 'ANIMAL_SHARE_TEXT' | translate }}"
+                                   socialshare-caption="{{ 'ANIMAL_FOUND_FACEBOOK_SHARE_CAPTION' | translate }}"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/found/{{animal.id}}"
+                                   socialshare-redirect-uri="https://www.facebook.com/">
+                                </p>
+                                <p class="soc-gg"
+                                   ng-if="service == 'found'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="google+"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/found/{{animal.id}}" >
+                                </p>
+                                <p class="soc-tw"
+                                   ng-if="service == 'found'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="twitter"
+                                   socialshare-via="{{ 'LKP_LEV' | translate }}"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/found/{{animal.id}}"
+                                   socialshare-hashtags="found">
+                                </p>
+
+                                <p class="soc-fb"
+                                   ng-if="service == 'lost'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="facebook"
+                                   socialshare-type="feed"
+                                   socialshare-via="145634995501895"
+                                   socialshare-to=""
+                                   socialshare-from=""
+                                   socialshare-ref=""
+                                   socialshare-display="popup"
+                                   socialshare-media="{{ animal.image }}"
+                                   socialshare-source=""
+                                   socialshare-description="{{ 'ANIMAL_LOST_FACEBOOK_SHARE_MESSAGE' | translate }}"
+                                   socialshare-text="{{ 'ANIMAL_SHARE_TEXT' | translate }}"
+                                   socialshare-caption="{{ 'ANIMAL_LOST_FACEBOOK_SHARE_CAPTION' | translate }}"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/lost/{{animal.id}}"
+                                   socialshare-redirect-uri="https://www.facebook.com/">
+                                </p>
+                                <p class="soc-gg"
+                                   ng-if="service == 'lost'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="google+"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/lost/{{animal.id}}" >
+                                </p>
+                                <p class="soc-tw"
+                                   ng-if="service == 'lost'"
+                                   ng-href
+                                   socialshare
+                                   socialshare-provider="twitter"
+                                   socialshare-via="{{ 'LKP_LEV' | translate }}"
+                                   socialshare-url="http://lkplev.unicloud.pl/#/ua/animal/lost/{{animal.id}}"
+                                   socialshare-hashtags="lost">
+                                </p>
+                            </div>
+                        </div>
+
+                        <script>
+                            $( ".image-wrapper"  ).hover(
+                                    function() {
+                                        $('.soc-fb').css({visibility: 'visible', opacity: 1.0});
+                                        $('.soc-gg').css({visibility: 'visible', opacity: 1.0});
+                                        $('.soc-tw').css({visibility: 'visible', opacity: 1.0});
+                                    }, function() {
+                                        $('.soc-fb').css({visibility: 'hidden', opacity: 0.0});
+                                        $('.soc-gg').css({visibility: 'hidden', opacity: 0.0});
+                                        $('.soc-tw').css({visibility: 'hidden', opacity: 0.0});
+                                    }
+                            );
+                        </script>
+
+                        <p>
+                            <div ng-cloak id="status-sprite-{{animal.id}}" class="center-block" style="text-align: center"></div>
+                        </p>
+                    </div>
+                    <div class="col-md-6 detailed-right">
+                        <div class="row">
+                            <div class="col-md-4">{{ 'TYPE' | translate }}:</div>
+                            <div class="col-md-8" ng-if="currentLanguage === 'uk'">{{ animal.type.type }}</div>
+                            <div class="col-md-8" ng-if="currentLanguage !== 'uk'">{{ animal.type.typeEn }}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">{{ 'BREED' | translate }}:</div>
+                            <div class="col-md-8" ng-if="currentLanguage === 'uk'">{{ animal.breed.breedUa }}</div>
+                            <div class="col-md-8" ng-if="currentLanguage !== 'uk'">{{ animal.breed.breedEn }}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">{{ 'SEX' | translate }}:</div>
+                            <div class="col-md-8" ng-if="animal.sex === 'NONE'">{{ 'NOT_IDENTIFIED' | translate }}</div>
+                            <div class="col-md-8" ng-if="animal.sex === 'MALE'">{{ 'SEX_MALE' | translate }}</div>
+                            <div class="col-md-8" ng-if="animal.sex === 'FEMALE'">{{ 'SEX_FEMALE' | translate }}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">{{ 'COLOR' | translate }}:</div>
+                            <div class="col-md-8">{{ animal.color }}</div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">{{ 'SIZE' | translate }}:</div>
+                            <div class="col-md-8" ng-if="animal.size === 'NONE'">{{ 'NOT_IDENTIFIED' | translate }}</div>
+                            <div class="col-md-8" ng-if="animal.size === 'SMALL'">{{ 'SIZE_SMALL' | translate }}</div>
+                            <div class="col-md-8" ng-if="animal.size === 'MIDDLE'">{{ 'SIZE_NORMAL' | translate }}</div>
+                            <div class="col-md-8" ng-if="animal.size === 'LARGE'">{{ 'SIZE_LARGE' | translate }}</div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row detailed-bottom" ng-show="detail">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">{{ 'BIRTH_DATE' | translate }}:</div>
+                        <div class="col-md-8">{{ animal.dateOfBirth }}</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">{{ 'STERILIZATION_DATE' | translate }}:</div>
+                        <div class="col-md-8">{{ animal.dateOfSterilization }}</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">{{ 'REGISTRATION_DATE' | translate }}:</div>
+                        <div class="col-md-8">{{ animal.dateOfRegister }}</div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">CITES:</div>
+                        <div class="col-md-8" ng-if="animal.cites === 'NONE'">{{ 'NOT_IDENTIFIED' | translate }}</div>
+                        <div class="col-md-8" ng-if="animal.cites === 'CITES1'">CITES I</div>
+                        <div class="col-md-8" ng-if="animal.cites === 'CITES2'">CITES II</div>
+                        <div class="col-md-8" ng-if="animal.cites === 'CITES3'">CITES III</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-6 detailed-buttons" >
+            <div class="col-md-7"><a class="btn btn-success col-md-12" ng-click="openDialog()" role="button" >{{ textButton }}</a></div>
+            <div class="col-md-5"><a class="btn btn-warning col-md-12" href={{linkBack}} role="button">{{ 'BACK' | translate }}</a></div>
+        </div>
+    </div>
+</section>
+
+<pop-up-dialog>
+    <div id="popUpDialog-bg" ng-show="showPopUpDialog">
+        <div id="popUpDialog">
+            <div class="content">
+
+                <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
+
+                <form role="form" name="messageForm"  ng-submit="submit(messageForm.$valid)" novalidate>
+                    <div class="form-group "
+                         ng-class="{ 'has-error' : messageForm.messagename.$invalid && !messageForm.messagename.$pristine }">
+                        <label class="control-label" for="messagename">{{ 'NAME' | translate }}</label>
+                        <input type="text" class="form-control" id="messagename" name="messagename" ng-model="message.signup"  placeholder="{{ 'CONTACTS_INPUT_NAME' | translate }}" required=""
+                               ng-minlength="3"/>
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false"></span>
+                        <span id="messagenameStatus" class="sr-only">(success)</span>
+                    </div>
+				 <span ng-show="messageForm.messagename.$invalid && messageForm.messagename.$error.minlength && !messageForm.messagename.$pristine"
+                       class="help-block error">{{ 'CONTACTS_INPUT_NAME_FAILED' | translate }}</span>
+
+                    <div class="form-group "
+                         ng-class="{ 'has-error' : messageForm.messageemail.$invalid && !messageForm.messageemail.$pristine }">
+                        <label class="control-label" for="messageemail">{{ 'EMAIL' | translate }}</label>
+                        <input type="email" class="form-control" id="messageemail" name="messageemail" ng-model="message.email"  placeholder="{{ 'CONTACTS_INPUT_EMAIL' | translate }}" required=""
+                               ng-minlength="5"/>
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        <span id="messageemailStatus" class="sr-only">(success)</span>
+                    </div>
+				  <span ng-show="messageForm.messageemail.$invalid && messageForm.messageemail.$error.email && !messageForm.messageemail.$pristine"
+                        class="help-block error">{{ 'CONTACTS_INPUT_EMAIL_FAILED' | translate }}</span>
+
+                    <div class="form-group"
+                         ng-class="{ 'has-error' : messageForm.messagetext.$invalid && !messageForm.messagetext.$pristine }">
+                        <label class="control-label" for="messagetext">{{ 'CONTACTS_MESSAGE' | translate }}</label>
+                        <textarea rows="10" cols="100" class="form-control" id="messagetext" name="messagetext" ng-model="message.text" placeholder="{{ 'CONTACTS_MESSAGE' | translate }}" required/>
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        <span id="messagestatus" class="sr-only">(success)</span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="input-group">
+                                <div
+                                        vc-recaptcha
+                                        theme="'light'"
+                                        key="'6Les_AsTAAAAAB2_jkT_xBMudI07A5Jmn0kbYods'"
+                                        on-create="setWidgetId(widgetId)"
+                                        on-success="setResponse(response)"
+                                        on-expire="cbExpiration()">
+                                </div>
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                            <div class="input-group">
+                                <!-- Spinner -->
+                                <div ng-show="spinnerloading" id="loading-block"> </div>
+
+                                <div class="alert alert-warning" role="alert" ng-show="startupmessage">{{ 'CONTACTS_STARTUP_MESSAGE' | translate }}</div>
+                                <div class="alert alert-success" role="alert" ng-show="okmessage">{{ 'SERVICE_DIALOG_OK_MESSAGE' | translate }}</div>
+                                <div class="alert alert-danger" role="alert" ng-show="errormessage">{{ 'CONTACTS_ERROR_MESSAGE' | translate }}</div>
+
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-md-6"><button id="messageSubmit" class="btn btn-success col-lg-12" ng-disabled="messageForm.$invalid" type="submit">{{ 'SEND' | translate }}</button></div>
+                        <div class="col-md-6"><button class="btn btn-warning col-lg-12"  ng-click="closeDialog()">Відміна</button></div>
+                    </div>
+                </form>
+                <!-- END CONTACT FORM -->
+
+            </div>
+        </div>
+    </div>
+</pop-up-dialog>
